@@ -1,0 +1,61 @@
+laravel new ivmbr
+php artisan migrate
+php artisan make:migration --name create_contacts_table
+php artisan make:migration create_brdata_depots_table
+php artisan make:migration create_brdata_category_table
+php artisan make:migration create_booking_table
+php artisan make:migration create_bookings_import_table
+php artisan migrate
+php artisan make:Model Depot
+php artisan make:Model Category
+php artisan make:Model Booking
+php artisan make:Model CsvData
+php artisan migrate
+composer require --dev barryvdh/laravel-ide-helper
+composer require barryvdh/laravel-debugbar --dev
+composer require spatie/laravel-backup`
+php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"`
+php artisan make:migration create_roles_table
+php artisan make:migration add_role_id_to_users_table
+php artisan make:seeder AdminUser
+php artisan make:seeder RolesSeeder
+php artisan make:seeder DepotsSeeder
+php artisan make:seeder CategoriesSeeder
+php artisan make:seeder BookingsSeeder
+php artisan make:factory DepotFactory --model=depot
+php artisan make:factory CategoryFactory --model=category
+php artisan make:factory BookingFactory --model=booking
+composer require filament/filament
+npm install alpinejs tailwindcss @tailwindcss/forms @tailwindcss/typography postcss postcss-custom-properties autoprefixer tippy.js --save-dev
+npx tailwindcss init
+npm update && npm install
+npm run dev
+php artisan vendor:publish --tag=filament-views
+php artisan make:filament-resource Category  --soft-deletes --view
+php artisan make:filament-resource Depot  --soft-deletes --view
+php artisan make:filament-resource Booking  --soft-deletes --view
+php artisan make:filament-resource Role
+php artisan make:filament-user
+composer require ryangjchandler/filament-profile
+php artisan vendor:publish --tag="filament-profile-views"
+php artisan filament:page Profile
+php artisan make:filament-resource User --generate
+php artisan make:policy UserPolicy --mode=User
+php artisan make:policy UserPolicy --model=User
+php artisan make:policy RolePolicy --model=Role
+php artisan make:policy DepotPolicy --model=Depot
+php artisan make:policy CategoryPolicy --model=Category
+php artisan make:policy BookingPolicy --model=Booking
+composer require maatwebsite/excel
+composer require psr/simple-cache:^1.0 pxlrbt/filament-excel
+php artisan make:export DepotsExport --model=Depot
+php artisan make:export CategoriesExport --model=Category
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" --tag=config
+php artisan make:controller DepotsController
+php artisan make:filament-action ExportDepots
+php artisan make:controller CategoryController
+php artisan make:filament-action ExportCategories
+php artisan storage:link
+php artisan vendor:publish --tag=filament-config
+php artisan vendor:publish --tag=filament-translations
+php artisan vendor:publish --tag=filament-views
