@@ -1,20 +1,12 @@
 laravel new ivmbr
-php artisan migrate
-php artisan make:migration --name create_contacts_table
-php artisan make:migration create_brdata_depots_table
-php artisan make:migration create_brdata_category_table
-php artisan make:migration create_booking_table
-php artisan make:migration create_bookings_import_table
-php artisan migrate
-php artisan make:Model Depot
-php artisan make:Model Category
-php artisan make:Model Booking
-php artisan make:Model CsvData
-php artisan migrate
 composer require --dev barryvdh/laravel-ide-helper
 composer require barryvdh/laravel-debugbar --dev
-composer require spatie/laravel-backup`
-php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"`
+composer require spatie/laravel-backup
+php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
+php artisan make:migration create_depots_table --model
+php artisan make:migration create_category_table --model
+php artisan make:migration create_booking_table --model
+php artisan make:migration create_csv_data_table --model
 php artisan make:migration create_roles_table
 php artisan make:migration add_role_id_to_users_table
 php artisan make:seeder AdminUser
