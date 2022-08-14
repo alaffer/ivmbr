@@ -39,12 +39,6 @@ composer require ryangjchandler/filament-profile
 php artisan vendor:publish --tag="filament-profile-views"
 php artisan filament:page Profile
 php artisan make:filament-resource User --generate
-php artisan make:policy UserPolicy --mode=User
-php artisan make:policy UserPolicy --model=User
-php artisan make:policy RolePolicy --model=Role
-php artisan make:policy DepotPolicy --model=Depot
-php artisan make:policy CategoryPolicy --model=Category
-php artisan make:policy BookingPolicy --model=Booking
 composer require maatwebsite/excel -W
 composer require psr/simple-cache:^1.0 pxlrbt/filament-excel
 php artisan make:export DepotsExport --model=Depot
@@ -53,3 +47,8 @@ php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" -
 php artisan make:controller DepotController
 php artisan make:controller CategoryController
 php artisan storage:link
+php artisan make:policy UserPolicy --model=User
+php artisan make:policy RolePolicy --model=Role
+php artisan make:policy DepotPolicy --model=Depot
+php artisan make:policy CategoryPolicy --model=Category
+php artisan make:policy BookingPolicy --model=Booking
