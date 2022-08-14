@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DepotController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::redirect('/login', '/br/login', 301)->name('login');
+Route::get('depot-export', [DepotController::class, 'depotExport'])->name('depot-export');
+Route::get('category-export', [CategoryController::class, 'categoryExport'])->name('category-export');

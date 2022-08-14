@@ -3,15 +3,16 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -33,6 +34,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public static $filamentRolesColumn = 'filament_roles';
+
     /**
      * The attributes that should be cast.
      *
@@ -41,4 +44,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function canAccessFilament(): bool
+    {
+        return str_ends_with($this->email, '@ivm.at') ;
+    }
+    public function isFilamentAdmin()
+    {
+        return $this->email === 'br-vorsitz@ivm.at';
+    }
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
 }

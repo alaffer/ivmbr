@@ -27,12 +27,14 @@ npm install alpinejs tailwindcss @tailwindcss/forms @tailwindcss/typography post
 npx tailwindcss init
 npm update && npm install
 npm run dev
-php artisan vendor:publish --tag=filament-views
 php artisan make:filament-resource Category  --soft-deletes --view
 php artisan make:filament-resource Depot  --soft-deletes --view
 php artisan make:filament-resource Booking  --soft-deletes --view
 php artisan make:filament-resource Role
 php artisan make:filament-user
+php artisan vendor:publish --tag=filament-config
+php artisan vendor:publish --tag=filament-translations
+php artisan vendor:publish --tag=filament-views
 composer require ryangjchandler/filament-profile
 php artisan vendor:publish --tag="filament-profile-views"
 php artisan filament:page Profile
@@ -43,16 +45,11 @@ php artisan make:policy RolePolicy --model=Role
 php artisan make:policy DepotPolicy --model=Depot
 php artisan make:policy CategoryPolicy --model=Category
 php artisan make:policy BookingPolicy --model=Booking
-composer require maatwebsite/excel
+composer require maatwebsite/excel -W
 composer require psr/simple-cache:^1.0 pxlrbt/filament-excel
 php artisan make:export DepotsExport --model=Depot
 php artisan make:export CategoriesExport --model=Category
 php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" --tag=config
-php artisan make:controller DepotsController
-php artisan make:filament-action ExportDepots
+php artisan make:controller DepotController
 php artisan make:controller CategoryController
-php artisan make:filament-action ExportCategories
 php artisan storage:link
-php artisan vendor:publish --tag=filament-config
-php artisan vendor:publish --tag=filament-translations
-php artisan vendor:publish --tag=filament-views
