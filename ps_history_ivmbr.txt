@@ -3,10 +3,15 @@ composer require --dev barryvdh/laravel-ide-helper
 composer require barryvdh/laravel-debugbar --dev
 composer require spatie/laravel-backup
 php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
-php artisan make:migration create_depots_table --model
-php artisan make:migration create_category_table --model
-php artisan make:migration create_booking_table --model
-php artisan make:migration create_csv_data_table --model
+php artisan make:model Depot
+php artisan make:migration create_depots_table 
+php artisan make:model Category
+php artisan make:migration create_categories_table 
+php artisan make:model Booking
+php artisan make:migration create_bookings_table 
+php artisan make:model CsvData
+php artisan make:migration create_csv_data_table 
+php artisan make:model Role
 php artisan make:migration create_roles_table
 php artisan make:migration add_role_id_to_users_table
 php artisan make:seeder AdminUser
