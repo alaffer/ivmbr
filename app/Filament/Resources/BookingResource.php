@@ -105,6 +105,7 @@ class BookingResource extends Resource
                 TextColumn::make('payin')->label('Eingang')->money('eur'),
                 TextColumn::make('payout')->label('Ausgang')->money('eur'),
                 TextColumn::make('person')->label('Person')->searchable()->wrap(),
+                TextColumn::make('deleted_at')->since()->label('Gelöscht'),
             ])->defaultSort('date','desc')
             ->filters([
                 Filter::make('Datum')
