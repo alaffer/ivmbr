@@ -89,13 +89,13 @@ class DepotResource extends Resource
                         ->fromTable()
                         ->withColumns([
                             Column::make('name')->width(30),
-                            Column::make('bank_name')->width(30),
-                            Column::make('blz')->width(10),
+                            Column::make('bank_name')->heading('Bank-Name')->width(30),
+                            Column::make('blz')->heading('BLZ')->width(10),
                             Column::make('excelName')->heading('Excel-Name')->width(20),
                             Column::make('excelSort')->heading('Excel-Sort.')->width(20),
-                            Column::make('active')->width(10),
-                            Column::make('created_at')->heading('erstellt am')->format('Y-m-d'),
-                            Column::make('deleted_at')->heading('gelöscht am')->format('Y-m-d'),
+                            Column::make('active')->heading('Aktiv')->width(10),
+                            Column::make('created_at')->heading('Erstellt am')->format('Y-m-d'),
+                            Column::make('deleted_at')->heading('Gelöscht am')->format('Y-m-d'),
                         ])
                         ->withWriterType(\Maatwebsite\Excel\Excel::XLSX),
                 ]),

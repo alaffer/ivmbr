@@ -149,16 +149,16 @@ class BookingResource extends Resource
                 ExcelExport::make()
                     ->fromTable()
                     ->withColumns([
-                        Column::make('depot.name')->width(30),
-                        Column::make('category.name')->width(40),
-                        Column::make('date')->width(20),
-                        Column::make('purpose')->width(80),
-                        Column::make('support_year')->width(10),
-                        Column::make('payin')->width(30),
-                        Column::make('payout')->width(30),
+                        Column::make('depot.name')->heading('Depot')->width(30),
+                        Column::make('category.name')->heading('Kategorie')->width(40),
+                        Column::make('date')->format('Y-m-d')->heading('Datum')->width(20),
+                        Column::make('purpose')->heading('Zweck')->width(80),
+                        Column::make('support_year')->heading('Förder-Jahr')->width(10),
+                        Column::make('payin')->heading('Eingang')->width(30),
+                        Column::make('payout')->heading('Ausgang')->width(30),
                         Column::make('person')->width(40),
-                        Column::make('created_at')->heading('erstellt am')->format('Y-m-d'),
-                        Column::make('deleted_at')->heading('gelöscht am')->format('Y-m-d'),
+                        Column::make('created_at')->heading('Erstellt am')->format('Y-m-d'),
+                        Column::make('deleted_at')->heading('Gelöscht am')->format('Y-m-d'),
                     ])
                     ->withWriterType(\Maatwebsite\Excel\Excel::XLSX),
             ]),
