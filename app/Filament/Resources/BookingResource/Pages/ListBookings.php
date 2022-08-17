@@ -14,6 +14,7 @@ class ListBookings extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+            Actions\Action::make('export')->label('Buchungen exportieren')->icon('heroicon-o-document-download')->url(route('booking-export')),
         ];
     }
 }

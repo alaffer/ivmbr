@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('depot_id')->unsigned()->nullable()->constrained()->default(null);
             $table->foreignId('category_id')->constrained();
-            $table->datetime("date");
+            $table->date("paydate");
             $table->text("purpose");
             $table->integer("support_year")->nullable()->default(null);
             $table->unsignedDecimal('payin', $precision = 8, $scale = 2)->nullable();

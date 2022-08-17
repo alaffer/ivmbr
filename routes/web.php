@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepotController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -22,3 +23,4 @@ Route::get('/', function () {
 Route::redirect('/login', '/br/login', 301)->name('login');
 Route::get('depot-export', [DepotController::class, 'depotExport'])->name('depot-export');
 Route::get('category-export', [CategoryController::class, 'categoryExport'])->name('category-export');
+Route::get('booking-export', [BookingController::class, 'bookingExport'])->name('booking-export');

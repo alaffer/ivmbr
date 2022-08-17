@@ -45,7 +45,7 @@ class BookingResource extends Resource
                 Select::make('category_id')
                     -> label('Kategorie')
                     -> relationship('category', 'name'),
-                DatePicker::make('date')
+                DatePicker::make('paydate')
                     ->label('Datum')
                     ->displayFormat($format = 'Y-m-d')
                     ->format('Y-m-d')
@@ -91,7 +91,7 @@ class BookingResource extends Resource
                 // Only render the tooltip if the column contents exceeds the length limit.
                 return $state;
                 }),
-                TextColumn::make('date')->label('Datum')->date('Y-m-d')->sortable(),
+                TextColumn::make('paydate')->label('Datum')->date('Y-m-d')->sortable(),
                 TextColumn::make('purpose')->limit('80')->label('Zweck')->wrap()
                 ->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
@@ -106,22 +106,22 @@ class BookingResource extends Resource
                 TextColumn::make('payout')->label('Ausgang')->money('eur'),
                 TextColumn::make('person')->label('Person')->searchable()->wrap(),
                 TextColumn::make('deleted_at')->since()->label('Gelöscht'),
-            ])->defaultSort('date','desc')
+            ])->defaultSort('paydate','desc')
             ->filters([
                 Filter::make('Datum')
                 ->form([
-                    Forms\Components\DatePicker::make('date_from')->label('Datum von'),
-                    Forms\Components\DatePicker::make('date_until')->label('Datum bis'),
+                    Forms\Components\DatePicker::make('paydate_from')->label('Datum von'),
+                    Forms\Components\DatePicker::make('paydate_until')->label('Datum bis'),
                 ])
                 ->query(function (Builder $query, array $data): Builder {
                     return $query
                         ->when(
-                            $data['date_from'],
-                            fn (Builder $query, $date): Builder => $query->whereDate('date', '>=', $date),
+                            $data['paydate_from'],
+                            fn (Builder $query, $date): Builder => $query->whereDate('paydate', '>=', $date),
                         )
                         ->when(
-                            $data['date_until'],
-                            fn (Builder $query, $date): Builder => $query->whereDate('date', '<=', $date),
+                            $data['paydate_until'],
+                            fn (Builder $query, $date): Builder => $query->whereDate('paydate', '<=', $date),
                         );
                 }),
                 SelectFilter::make('depot')->label('Depot')
@@ -152,7 +152,7 @@ class BookingResource extends Resource
                     ->withColumns([
                         Column::make('depot.name')->heading('Depot')->width(30),
                         Column::make('category.name')->heading('Kategorie')->width(40),
-                        Column::make('date')->format('Y-m-d')->heading('Datum')->width(20),
+                        Column::make('paydate')->format('Y-m-d')->heading('Datum')->width(20),
                         Column::make('purpose')->heading('Zweck')->width(80),
                         Column::make('support_year')->heading('Förder-Jahr')->width(10),
                         Column::make('payin')->heading('Eingang')->width(30),

@@ -13,7 +13,7 @@ class Booking extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $fillable = ['depot_id', 'category_id', 'date', 'purpose', 'support_year', 'payin', 'payout', 'person', 'remarks'];
+    public $fillable = ['depot_id', 'category_id', 'paydate', 'purpose', 'support_year', 'payin', 'payout', 'person', 'remarks'];
 
     protected $casts = [
         'active' => 'boolean',

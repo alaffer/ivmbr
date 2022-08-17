@@ -22,6 +22,7 @@ class BookingFactory extends Factory
         $crd = fake()->dateTimeBetween('-50 week', '-1 week');
         $udd = $crd->add(new DateInterval('PT3H5M'));
         $cat = Category::pluck('id')->random();
+        $pd = fake()->dateTimeBetween('-100 week', '-51 week')->format('Y-m-d');
         if($cat==19){
             $dep = null;
             $pi = null;
@@ -48,7 +49,7 @@ class BookingFactory extends Factory
         return [
             'depot_id' => $dep,
             'category_id' => $cat,
-            'date' => fake()->dateTimeBetween('-100 week', '-51 week'),
+            'paydate' => $pd,
             'purpose' => fake()->text(30),
             'support_year' => NULL,
             'payin' => $pi ,
