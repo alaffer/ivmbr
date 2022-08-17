@@ -87,6 +87,9 @@ class BookingsExport implements FromCollection, WithHeadings, WithMapping, WithE
                     ]
                 ];
                 $sheet->getDelegate()->getStyle($cellRange)->applyFromArray($styleArray);
+
+                // $cellRange = 'B:B';
+                // $sheet->getStyle($cellRange)->getNumberFormat()->setFormatCode('000-00000000');
             },
         ];
     }
