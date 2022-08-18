@@ -40,11 +40,11 @@ class CategoryResource extends Resource
         ->schema([
             Card::make()->schema([
                 TextInput::make('name')->required(),
+                RichEditor::make('remarks')->label('Anmerkung'),
                 TextInput::make('maxsupport')->label('Max. Förderung'),
                 TextInput::make('maxsupportperyear')->label('Max. Förderung/Jahr'),
-                RichEditor::make('remarks')->label('Anmerkung'),
                 Toggle::make('active')->label('Aktiv'),
-            ])
+            ])->columns(2)
         ]);
 }
 

@@ -9,6 +9,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Grid;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
@@ -38,7 +39,15 @@ class BookingResource extends Resource
     {
         return $form
         ->schema([
-            Card::make()->schema([
+            Grid::make([
+                'default' => 1,
+                'sm' => 1,
+                'md' => 1,
+                'lg' => 2,
+                'xl' => 3,
+                '2xl' => 3,
+            ])
+            ->schema([
                 Select::make('depot_id')
                     -> label('Depot')
                     -> relationship('depot', 'name'),
@@ -60,9 +69,9 @@ class BookingResource extends Resource
                         ->numeric()
                         ->integer() // Disallow decimal numbers.
                     ),
+                TextInput::make('person')->label('Person')->autocomplete($autocomplete = 'on')->placeholder('Der Namen der geförderten Person (sonst leer lassen)'),
                 TextInput::make('payin')->label('Eingang')->numeric()->mask(fn (TextInput\Mask $mask) => $mask->money('€', ',', 2)),
                 TextInput::make('payout')->label('Ausgang')->numeric()->mask(fn (TextInput\Mask $mask) => $mask->money('€', ',', 2)),
-                TextInput::make('person')->label('Person')->autocomplete($autocomplete = 'on')->placeholder('Der Namen der geförderten Person (sonst leer lassen)'),
                 RichEditor::make('remarks')->label('Anmerkung'),
             ])
         ]);

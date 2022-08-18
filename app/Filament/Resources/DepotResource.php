@@ -37,9 +37,10 @@ class DepotResource extends Resource
         ->schema([
             Card::make()->schema([
                 TextInput::make('name')->required(),
+                TextInput::make('accountType')->label('Kontoart')->required(),
                 TextInput::make('bank_name')->label('Bank-Name')->required(),
                 TextInput::make('blz')->label('BLZ'),
-                TextInput::make('accountType')->label('Kontoart')->required(),
+                TextInput::make('excelName')->label('Excel-Name'),
                 TextInput::make('excelSort')->label('Excel-Sortierung')
                 ->numeric()
                     ->mask(fn (TextInput\Mask $mask) => $mask
@@ -50,7 +51,7 @@ class DepotResource extends Resource
                     )->required(),
                 RichEditor::make('remarks')->label('Anmerkung'),
                 Toggle::make('active')->label('Aktiv'),
-            ])->columns(3)
+            ])->columns(2)
         ]);
 }
 
