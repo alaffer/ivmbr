@@ -52,3 +52,5 @@ php artisan make:policy RolePolicy --model=Role
 php artisan make:policy DepotPolicy --model=Depot
 php artisan make:policy CategoryPolicy --model=Category
 php artisan make:policy BookingPolicy --model=Booking
+composer require awcodes/filament-quick-create
+php artisan vendor:publish --tag=filament-quick-create-config
