@@ -24,3 +24,4 @@ Route::redirect('/login', '/br/login', 301)->name('login');
 Route::get('depot-export', [DepotController::class, 'depotExport'])->name('depot-export');
 Route::get('category-export', [CategoryController::class, 'categoryExport'])->name('category-export');
 Route::get('booking-export', [BookingController::class, 'bookingExport'])->name('booking-export');
+Route::get('bookingview-export', [BookingController::class, 'bookingViewExport'])->name('bookingview-export');

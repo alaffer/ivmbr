@@ -2,9 +2,12 @@
 
 namespace App\Filament\Resources\BookingResource\Pages;
 
-use App\Filament\Resources\BookingResource;
 use Filament\Pages\Actions;
+use pxlrbt\FilamentExcel\Columns\Column;
 use Filament\Resources\Pages\ListRecords;
+use App\Filament\Resources\BookingResource;
+use pxlrbt\FilamentExcel\Actions\Pages\ExportAction;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class ListBookings extends ListRecords
 {
@@ -12,9 +15,17 @@ class ListBookings extends ListRecords
 
     protected function getActions(): array
     {
+        
         return [
             Actions\CreateAction::make(),
             Actions\Action::make('export')->label('Buchungen exportieren')->icon('heroicon-o-document-download')->url(route('booking-export')),
+            // ExportAction::make('export-view')
+            //     ->label('Buchungsansicht exportieren')
+            //     ->exports([
+            //         ExcelExport::make('table')->fromTable()
+            //             // ->withWriterType(\Maatwebsite\Excel\Excel::XLSX)
+            //             // ->withFilename(date('Y-m-d') . '_bookings'),
+            //     ]),
         ];
     }
 }
