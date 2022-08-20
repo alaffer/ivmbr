@@ -15,10 +15,12 @@ class ListBookings extends ListRecords
 
     protected function getActions(): array
     {
+        //dd(View::class);
         
         return [
             Actions\CreateAction::make(),
             Actions\Action::make('export')->label('Buchungen exportieren')->icon('heroicon-o-document-download')->url(route('booking-export')),
+            //Actions\Action::make('export-view')->label('Buchungsansicht exportieren')->icon('heroicon-o-document-download')->url(route('bookingview-export')),
             // ExportAction::make('export-view')
             //     ->label('Buchungsansicht exportieren')
             //     ->exports([

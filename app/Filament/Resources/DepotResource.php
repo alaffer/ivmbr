@@ -12,6 +12,7 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use pxlrbt\FilamentExcel\Columns\Column;
@@ -49,7 +50,7 @@ class DepotResource extends Resource
                         ->minValue(1) // Set the minimum value that the number can be.
                         ->maxValue(Depot::all()->count()) // Set the maximum value that the number can be.
                     )->required(),
-                RichEditor::make('remarks')->label('Anmerkung'),
+                Textarea::make('remarks')->label('Anmerkung'),
                 Toggle::make('active')->label('Aktiv'),
             ])->columns(2)
         ]);

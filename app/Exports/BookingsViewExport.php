@@ -5,7 +5,11 @@ namespace App\Exports;
 use App\Models\Booking;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Filament\Tables;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
+
 
 class BookingsViewExport implements FromView
 {
@@ -14,6 +18,6 @@ class BookingsViewExport implements FromView
     */
     public function view(): View
     {
-        return view('\resources\views\vendor\filament\resources\pages\list-records', ['bookings' => Booking::all()]);
+        return view('list-bookings', ['bookings' => Booking::all()]);
     }
 }

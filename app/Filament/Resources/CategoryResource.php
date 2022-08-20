@@ -11,18 +11,19 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use pxlrbt\FilamentExcel\Columns\Column;
 use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Columns\BooleanColumn;
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
 use App\Filament\Resources\CategoryResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use App\Filament\Resources\CategoryResource\RelationManagers;
-use pxlrbt\FilamentExcel\Columns\Column;
-use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
 
 class CategoryResource extends Resource
 {
@@ -40,7 +41,7 @@ class CategoryResource extends Resource
         ->schema([
             Card::make()->schema([
                 TextInput::make('name')->required(),
-                RichEditor::make('remarks')->label('Anmerkung'),
+                Textarea::make('remarks')->label('Anmerkung'),
                 TextInput::make('maxsupport')->label('Max. Förderung'),
                 TextInput::make('maxsupportperyear')->label('Max. Förderung/Jahr'),
                 Toggle::make('active')->label('Aktiv'),

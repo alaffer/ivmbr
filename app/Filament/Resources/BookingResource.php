@@ -12,6 +12,7 @@ use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use pxlrbt\FilamentExcel\Columns\Column;
@@ -60,7 +61,7 @@ class BookingResource extends Resource
                     ->minDate('2010-01-01')
                     ->placeholder('Das Datum der Transaktion')
                     ->required(),
-                RichEditor::make('purpose')->label('Zweck')->required(),
+                Textarea::make('purpose')->label('Zweck')->required(),
                 TextInput::make('support_year')->label('Förderjahr')
                     ->placeholder('Das Jahr für das die Förderung der Person gilt (sonst leer lassen, nur Zahlen erlaubt)')
                     ->numeric()
@@ -71,12 +72,12 @@ class BookingResource extends Resource
                 TextInput::make('person')->label('Person')->autocomplete($autocomplete = 'on')->placeholder('Der Namen der geförderten Person (sonst leer lassen)'),
                 TextInput::make('payin')->label('Eingang')->numeric()->mask(fn (TextInput\Mask $mask) => $mask->money('€', ',', 2)),
                 TextInput::make('payout')->label('Ausgang')->numeric()->mask(fn (TextInput\Mask $mask) => $mask->money('€', ',', 2)),
-                RichEditor::make('remarks')->label('Anmerkung'),
+                TextInput::make('remarks')->label('Anmerkung'),
             ])
         ]);
 }
 
-    public static function table(Table $table): Table
+    public static function table(Table $table): Table 
     {
         return $table
             ->columns([
@@ -171,7 +172,7 @@ class BookingResource extends Resource
                     ])
                     ->withWriterType(\Maatwebsite\Excel\Excel::XLSX),
             ]),
-]);
+        ]);
     }
     
     public static function getRelations(): array
