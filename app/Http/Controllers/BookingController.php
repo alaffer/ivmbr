@@ -15,9 +15,9 @@ class BookingController extends Controller
         return Excel::download(new BookingsExport, 'bookings.xlsx');
     }
 
-    public function bookingViewExport()
-    {
-        return Excel::download(new BookingsViewExport, 'bookings.xlsx');
-    }
+    // public function bookingViewExport()
+    // {
+    //     return Excel::download(new BookingsViewExport, 'bookings.xlsx');
+    // }
 
 }

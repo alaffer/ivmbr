@@ -100,7 +100,7 @@ class BookingResource extends Resource
                 // Only render the tooltip if the column contents exceeds the length limit.
                 return $state;
                 }),
-                TextColumn::make('paydate')->label('Datum')->date('Y-m-d')->sortable(),
+                TextColumn::make('paydate')->label('Datum')->sortable(),
                 TextColumn::make('purpose')->limit('80')->label('Zweck')->wrap()
                 ->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
@@ -114,7 +114,7 @@ class BookingResource extends Resource
                 TextColumn::make('payin')->label('Eingang')->money('eur'),
                 TextColumn::make('payout')->label('Ausgang')->money('eur'),
                 TextColumn::make('person')->label('Person')->searchable()->wrap(),
-                TextColumn::make('deleted_at')->since()->label('Gelöscht'),
+                TextColumn::make('deleted_at')->label('Gelöscht'),
             ])->defaultSort('paydate','desc')
             ->filters([
                 Filter::make('Datum')

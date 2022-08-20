@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepotController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryController;
+use App\Filament\Resources\BookingResource\Pages\ListBookings;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,4 @@ Route::get('depot-export', [DepotController::class, 'depotExport'])->name('depot
 Route::get('category-export', [CategoryController::class, 'categoryExport'])->name('category-export');
 Route::get('booking-export', [BookingController::class, 'bookingExport'])->name('booking-export');
 Route::get('bookingview-export', [BookingController::class, 'bookingViewExport'])->name('bookingview-export');
+Route::get('list-bookings-export', [ListBookings::class, 'export'])->name('list-bookings-export');

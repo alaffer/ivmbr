@@ -3,21 +3,20 @@
 namespace App\Exports;
 
 use App\Models\Booking;
-use Illuminate\Contracts\View\View;
-use Maatwebsite\Excel\Concerns\FromView;
-use Filament\Tables;
-use Filament\Resources\Form;
-use Filament\Resources\Table;
-use Filament\Resources\Resource;
+use Maatwebsite\Excel\Concerns\FromArray;
 
 
-class BookingsViewExport implements FromView
+class BookingsViewExport implements FromArray
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function view(): View
+    protected $bookings;
+
+    public function __construct(array $bookings)
     {
-        return view('list-bookings', ['bookings' => Booking::all()]);
+        $this->bookings = $bookings;
+    }
+
+    public function array(): array
+    {
+        return $this->bookings;
     }
 }
