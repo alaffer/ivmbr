@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources;
 
+use Actions\Action;
 use Filament\Forms;
 use Filament\Tables;
 use App\Models\Booking;
+use Illuminate\Support\Str;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
@@ -20,6 +22,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
 use Filament\Tables\Filters\MultiSelectFilter;
 use App\Filament\Resources\BookingResource\Pages;
@@ -147,6 +150,18 @@ class BookingResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                // Tables\Actions\Action::make('exportAsJson')
+                //     ->label(__('Export'))
+                //     ->action(function ($record) {
+                //         $booking = Str::slug($record->id, '_');
+                //         return response()->streamDownload(function () use ($record) {
+                //             $return = $record->attributesToArray();
+                //             echo json_encode($return, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+                //         }, 'booking' . $booking . '.json');
+                //     })
+                //     ->tooltip(__('Export as Json'))
+                //     ->icon('heroicon-s-download')
+                //     ->color('primary'),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -172,6 +187,22 @@ class BookingResource extends Resource
                     ])
                     ->withWriterType(\Maatwebsite\Excel\Excel::XLSX),
             ]),
+            // Tables\Actions\BulkAction::make('exportAllAsJson')
+            // ->label('Export All as Json')
+            // ->icon('heroicon-s-download')
+            // ->action(function (Collection $records) {
+            //     $archive = new \ZipArchive;
+            //     $archive->open('file.zip', \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
+            //     foreach ($records as $record) {
+            //         $name = 'booking' . Str::slug($record->id, '_') . '.json';
+            //         $return = $record->attributesToArray();
+            //         $content = json_encode($return, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+            //         $archive->addFromString($name, $content);
+            //     }
+            //     $archive->close();
+            //     return response()->download('file.zip');
+            // })
+            // ->deselectRecordsAfterCompletion(),
         ]);
     }
     

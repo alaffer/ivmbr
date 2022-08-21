@@ -8,6 +8,7 @@ use PhpOffice\PhpSpreadsheet\Shared\Date;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use Illuminate\Database\Eloquent\Collection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
@@ -23,13 +24,10 @@ class BookingsExport implements FromCollection, WithHeadings, WithMapping, WithE
     {
         $data = Booking::with(['depot','category'])
         ->withTrashed()
-        ->where('paydate','>','2021-01-01')
+        // ->where('paydate','>','2021-01-01')
         ->orderBy('paydate','DESC')
         ->orderBy('id','ASC')
         ->get();
-
-        //dd($data);
-
         return $data;
     }
 

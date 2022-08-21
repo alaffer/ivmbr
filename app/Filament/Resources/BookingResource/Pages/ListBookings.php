@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\BookingResource\Pages;
 
-use Filament\Tables\Table;
+
 use Filament\Pages\Actions;
+use Illuminate\Support\Str;
 use App\Exports\BookingsExport;
 use App\Exports\BookingsViewExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -12,29 +13,33 @@ use App\Filament\Resources\BookingResource;
 
 class ListBookings extends ListRecords
 {
-
     protected static string $resource = BookingResource::class;
 
     protected function getActions(): array
     {
         return [
             Actions\CreateAction::make(),
-            Actions\Action::make('export')->label('Buchungen exportieren')->icon('heroicon-o-document-download')->url(route('booking-export')),
-            //Actions\Action::make('export-view')->label('Buchungsansicht exportieren')->icon('heroicon-o-document-download')->url(route('bookingview-export')),
-            Actions\Action::make('export-list')->label('Buchungsliste exportieren')->icon('heroicon-o-document-download')->url(route('list-bookings-export')),
+            Actions\Action::make('exportAll')
+                ->label('Buchungen exportieren')
+                ->tooltip(__('Alle Buchungen nach Excel exportieren'))
+                ->icon('heroicon-o-document-download')
+                ->action(function ($record) {
+                    $filename = 'bookings.xlsx';
+                    return Excel::download(new BookingsExport, $filename);    
+                }),
+            Actions\Action::make('exportFiltered')
+                ->label('Buchungsansicht exportieren')
+                ->tooltip(__('Aktuelle Buchungsansicht nach Excel exportieren'))
+                ->icon('heroicon-s-download')
+                ->action(function ($record) {
+                    $query = $this->getFilteredTableQuery();
+                    // dd($query);
+                    $this->applySortingToTableQuery($query);
+                    $bookings = $query->get(); //->toArray();
+                    //$filename = now()->format('Ymdhis').'-bookings.xlsx';
+                    $filename = 'bookings.xlsx';
+                    return Excel::download(new BookingsViewExport($bookings), $filename);    
+                }),
         ];
-    }
-    
-    public function export()
-    {
-        //$filters = $this->cachedTableFilters();
-        $query = $this->getFilteredTableQuery();
-        $this->applySortingToTableQuery($query);
- 
-        $bookings = $query->get()->toArray();
- 
-        $filename = now()->format('Ymdhis').'-bookings.xlsx';
-        dd($bookings);
-        return Excel::download(new BookingsViewExport($bookings), $filename);    
     }
 }
