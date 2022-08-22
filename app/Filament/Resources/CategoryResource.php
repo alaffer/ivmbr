@@ -8,7 +8,7 @@ use App\Models\Category;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\Card;
+use Filament\Forms\Components\FieldSet;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Textarea;
@@ -39,14 +39,21 @@ class CategoryResource extends Resource
     {
         return $form
         ->schema([
-            Card::make()->schema([
+            FieldSet::make(label: 'Infos')
+            ->schema([
                 TextInput::make('name')->required(),
                 Textarea::make('remarks')->label('Anmerkung'),
+            ]),
+            FieldSet::make(label: 'Max.-Summen')
+            ->schema([
                 TextInput::make('maxsupport')->label('Max. Förderung'),
                 TextInput::make('maxsupportperyear')->label('Max. Förderung/Jahr'),
+            ]),
+            FieldSet::make(label: 'Kennzeichen')
+            ->schema([
                 Toggle::make('is_employee_support')->label('MA-Förderung'),
                 Toggle::make('active')->label('Aktiv'),
-            ])->columns(2)
+            ])
         ]);
 }
 

@@ -11,7 +11,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
-use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\FieldSet;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -42,14 +42,7 @@ class BookingResource extends Resource
     {
         return $form
         ->schema([
-            Grid::make([
-                'default' => 1,
-                'sm' => 1,
-                'md' => 1,
-                'lg' => 2,
-                'xl' => 3,
-                '2xl' => 3,
-            ])
+            FieldSet::make(label: 'Depot/Kategorie')
             ->schema([
                 Select::make('depot_id')
                     -> label('Depot')
@@ -57,6 +50,9 @@ class BookingResource extends Resource
                 Select::make('category_id')
                     -> label('Kategorie')
                     -> relationship('category', 'name'),
+            ]),
+            FieldSet::make(label: 'Infos')
+            ->schema([
                 DatePicker::make('paydate')
                     ->label('Datum')
                     ->displayFormat($format = 'Y-m-d')
@@ -73,10 +69,16 @@ class BookingResource extends Resource
                         ->integer() // Disallow decimal numbers.
                     ),
                 TextInput::make('person')->label('Person')->autocomplete($autocomplete = 'on')->placeholder('Der Namen der geförderten Person (sonst leer lassen)'),
+                ]),
+            FieldSet::make(label: 'Zahlungen')
+            ->schema([
                 TextInput::make('payin')->label('Eingang')->numeric()->mask(fn (TextInput\Mask $mask) => $mask->money('€', ',', 2)),
                 TextInput::make('payout')->label('Ausgang')->numeric()->mask(fn (TextInput\Mask $mask) => $mask->money('€', ',', 2)),
+            ]),
+            FieldSet::make(label: 'Anmerkungen')->columns(1)
+            ->schema([
                 TextInput::make('remarks')->label('Anmerkung'),
-            ])
+            ]),
         ]);
 }
 
