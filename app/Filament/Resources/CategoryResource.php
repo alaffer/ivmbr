@@ -44,6 +44,7 @@ class CategoryResource extends Resource
                 Textarea::make('remarks')->label('Anmerkung'),
                 TextInput::make('maxsupport')->label('Max. Förderung'),
                 TextInput::make('maxsupportperyear')->label('Max. Förderung/Jahr'),
+                Toggle::make('is_employee_support')->label('MA-Förderung'),
                 Toggle::make('active')->label('Aktiv'),
             ])->columns(2)
         ]);
@@ -56,6 +57,7 @@ class CategoryResource extends Resource
                 TextColumn::make('name')->limit('50')->sortable()->searchable(),
                 TextColumn::make('maxsupport')->limit('50')->label('Max. Förderung'),
                 TextColumn::make('maxsupportperyear')->limit('50')->label('Max. Förderung/Jahr'),
+                BooleanColumn::make('is_employee_support')->label('MA-Förderung'),
                 BooleanColumn::make('active')->label('Aktiv'),
                 TextColumn::make('created_at')->since()->label('Erstellt'),
             ])
@@ -83,6 +85,7 @@ class CategoryResource extends Resource
                             Column::make('name')->width(30),
                             Column::make('maxsupport')->width(20),
                             Column::make('maxsupportperyear')->width(20),
+                            Column::make('is_employee_support')->width(20),
                             Column::make('active')->width(10),
                             Column::make('created_at')->heading('erstellt am')->format('Y-m-d'),
                             Column::make('deleted_at')->heading('gelöscht am')->format('Y-m-d'),

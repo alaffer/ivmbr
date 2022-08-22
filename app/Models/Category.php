@@ -10,10 +10,11 @@ class Category extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $fillable = ['name', 'maxsupport', 'maxsupportperyear', 'remarks', 'active'];
+    public $fillable = ['name', 'maxsupport', 'maxsupportperyear', 'remarks', 'is_employee_support', 'active'];
 
     protected $casts = [
         'active' => 'boolean',
+        'is_employee_support' => 'boolean',
     ];
     public function bookings()
     {
