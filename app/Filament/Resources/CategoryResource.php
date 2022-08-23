@@ -8,7 +8,7 @@ use App\Models\Category;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\Card;
+use Filament\Forms\Components\FieldSet;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Textarea;
@@ -39,13 +39,21 @@ class CategoryResource extends Resource
     {
         return $form
         ->schema([
-            Card::make()->schema([
+            FieldSet::make(label: 'Infos')
+            ->schema([
                 TextInput::make('name')->required(),
                 Textarea::make('remarks')->label('Anmerkung'),
+            ]),
+            FieldSet::make(label: 'Max.-Summen')
+            ->schema([
                 TextInput::make('maxsupport')->label('Max. Förderung'),
                 TextInput::make('maxsupportperyear')->label('Max. Förderung/Jahr'),
+            ]),
+            FieldSet::make(label: 'Kennzeichen')
+            ->schema([
+                Toggle::make('is_employee_support')->label('MA-Förderung'),
                 Toggle::make('active')->label('Aktiv'),
-            ])->columns(2)
+            ])
         ]);
 }
 
@@ -56,6 +64,7 @@ class CategoryResource extends Resource
                 TextColumn::make('name')->limit('50')->sortable()->searchable(),
                 TextColumn::make('maxsupport')->limit('50')->label('Max. Förderung'),
                 TextColumn::make('maxsupportperyear')->limit('50')->label('Max. Förderung/Jahr'),
+                BooleanColumn::make('is_employee_support')->label('MA-Förderung'),
                 BooleanColumn::make('active')->label('Aktiv'),
                 TextColumn::make('created_at')->since()->label('Erstellt'),
             ])
@@ -83,6 +92,7 @@ class CategoryResource extends Resource
                             Column::make('name')->width(30),
                             Column::make('maxsupport')->width(20),
                             Column::make('maxsupportperyear')->width(20),
+                            Column::make('is_employee_support')->width(20),
                             Column::make('active')->width(10),
                             Column::make('created_at')->heading('erstellt am')->format('Y-m-d'),
                             Column::make('deleted_at')->heading('gelöscht am')->format('Y-m-d'),

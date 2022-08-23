@@ -33,9 +33,10 @@ class ListBookings extends ListRecords
                 ->icon('heroicon-s-download')
                 ->action(function ($record) {
                     $query = $this->getFilteredTableQuery();
-                    // dd($query);
+                    //dd($query);
                     $this->applySortingToTableQuery($query);
                     $bookings = $query->get(); //->toArray();
+                    //dd($bookings);
                     //$filename = now()->format('Ymdhis').'-bookings.xlsx';
                     $filename = 'bookings.xlsx';
                     return Excel::download(new BookingsViewExport($bookings), $filename);    

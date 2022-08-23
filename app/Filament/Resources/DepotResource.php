@@ -9,7 +9,7 @@ use Filament\Resources\Form;
 use Maatwebsite\Excel\Excel;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\Card;
+use Filament\Forms\Components\FieldSet;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Textarea;
@@ -36,11 +36,18 @@ class DepotResource extends Resource
     {
         return $form
         ->schema([
-            Card::make()->schema([
+            FieldSet::make(label: 'Infos')
+            ->schema([
                 TextInput::make('name')->required(),
                 TextInput::make('accountType')->label('Kontoart')->required(),
+            ]),
+            FieldSet::make(label: 'Bank')
+            ->schema([
                 TextInput::make('bank_name')->label('Bank-Name')->required(),
                 TextInput::make('blz')->label('BLZ'),
+            ]),
+            FieldSet::make(label: 'Excel')
+            ->schema([
                 TextInput::make('excelName')->label('Excel-Name'),
                 TextInput::make('excelSort')->label('Excel-Sortierung')
                 ->numeric()
@@ -50,9 +57,12 @@ class DepotResource extends Resource
                         ->minValue(1) // Set the minimum value that the number can be.
                         ->maxValue(Depot::all()->count()) // Set the maximum value that the number can be.
                     )->required(),
+                ]),
+            FieldSet::make(label: 'Sonstiges')
+            ->schema([
                 Textarea::make('remarks')->label('Anmerkung'),
                 Toggle::make('active')->label('Aktiv'),
-            ])->columns(2)
+            ]),
         ]);
 }
 
