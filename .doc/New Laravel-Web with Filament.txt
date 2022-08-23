@@ -1,0 +1,104 @@
+Create new Laravel-Web
+======================
+
+Vorbedingungen:
+Software:                           Composer, MySQL-DB-Server, PHP 8.0+ z.B. XAMPP o.ä., MySQL Workbench, Microsoft Code
+                                    ----> https://getcomposer.org/download/
+									----> https://www.apachefriends.org/de/index.html
+									----> https://www.mysql.com/de/downloads/
+									----> https://code.visualstudio.com/download
+Composer-Packages:                  Laravel-Installer
+                                    ----> siehe https://laravel.com/docs/9.x/installation#the-laravel-installer
+                                    ----> nur einmal vor den Entwicklungen:  
+									      composer global require laravel/installer
+
+Start der Entwicklung
+=====================
+										  
+mkdir Web                           ----> Basis-Ordner für Web-Apps
+cd Web
+laravel new PROJEKTNAME
+cd PROJEKTNAME
+code .
+                                    ----> Anpassen der .env
+                                    ----> Erstellen einer Datenbank wie in der .env definiert (z.B. PROJEKTNAME) mit
+php artisan migrate
+php artisan serve                   ----> Starten der Website - Standard-Laravel-Welcome-View wird angezeigt
+
+Verwendung von Filament             ----> https://filamentphp.com/docs/2.x/admin/installation
+=======================
+
+composer require filament/filament  ----> installieren des Pakets 'Filament'
+php artisan make:filament-user      ----> erzeugen eines Filament Admin-Users
+
+Anlegen laut dem Laraveller-Kurs
+
+
+Anpassen des Tailwind-Css
+=========================
+
+npm install alpinejs tailwindcss @tailwindcss/forms @tailwindcss/typography postcss postcss-custom-properties autoprefixer tippy.js --save-dev
+npx tailwindcss init                ----> erstellt die tailwind.config.js
+npm install && npm update
+npm run dev                         ----> nach jeder Änderung - Compiliert mit vite
+
+php artisan vendor:publish --tag=filament-config         ----> published die filament-Konfiguration
+php artisan vendor:publish --tag=filament-translations   ----> published die filament-Übersetzungen
+php artisan vendor:publish --tag=filament-views          ----> published die filament-Komponenten
+
+Ergänzen von \resources\views\vendor\filament\components\layouts\base.blade.php
+Einfügen von @vite('resources/css/app.css')
+direkt vor </head>
+
+
+
+
+Hilfs-Pakete installieren (nützliche Tools zur Unterstützung beim Entwickeln von Laravel-Web-Apps) 
+=====================================================================================================
+siehe https://www.youtube.com/watch?v=UORMYT8Fs9Y&list=PLw3tv6t9IYo28D7HfoLnRIi84ppMBiXqs&index=24
+
+
+1) DebugBar                         ----> https://github.com/barryvdh/laravel-debugbar
+composer require barryvdh/laravel-debugbar --dev
+
+2) IdeHelper                        ----> https://github.com/barryvdh/laravel-ide-helper
+composer require --dev barryvdh/laravel-ide-helper
+
+3) Laravel N+1 Query Detector       ----> https://github.com/beyondcode/laravel-query-detector
+composer require beyondcode/laravel-query-detector --dev
+
+4) Laravel-Backup                   ----> https://github.com/spatie/laravel-backup  - https://spatie.be/docs/laravel-backup/v8/installation-and-setup
+composer require spatie/laravel-backup
+php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
+
+
+
+Verwendung eines SQL Server i Laravel
+=======================================
+
+1) php-Sql-Server-Treiber in den php\ext - Ordner kopieren 
+        aktuell: 		php_pdo_sqlsrv_81_ts_x64.dll  und  php_sqlsrv_81_ts_x64.dll
+
+2) php.ini - Extensions anpassen 
+        extension=php_pdo_sqlsrv_81_ts_x64.dll
+		extension=php_sqlsrv_81_ts_x64.dll
+
+3) .env Datei anpassen 
+        z.B. ivmbr\.env
+		
+		# Anpassungen an SQL Server #######
+		DB_CONNECTION=sqlsrv
+		DB_HOST=localhost\MSSQLSERVER19      # SQL-Server Instanz
+		DB_PORT=                             # muss unbedingt leer bleiben!!
+		DB_USERNAME=sa                       # oder anderer berechtigter Benutzer
+		DB_PASSWORD=88Ivm88:
+		###################################
+		DB_DATABASE=ivmbrdb
+		
+4) Models anpassen
+Falls datetime verwendet wird muss man im Model das Format vorgeben
+	
+	protected $dateFormat = 'd-m-Y H:i:s';
+	
+5) Danach kann man wie gewohnt php artisam migrate... laufen lassen
+	

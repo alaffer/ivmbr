@@ -54,3 +54,7 @@ php artisan make:policy CategoryPolicy --model=Category
 php artisan make:policy BookingPolicy --model=Booking
 composer require awcodes/filament-quick-create
 php artisan vendor:publish --tag=filament-quick-create-config
+php artisan vendor:publish --tag=tables-config
+php artisan vendor:publish --tag=tables-translations
+php artisan make:export BookingsExport --model=Booking
+php artisan make:export BookingsViewExport --model=Booking
