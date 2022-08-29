@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bank_import', function (Blueprint $table) {
+        Schema::create('bank_data', function (Blueprint $table) {
             $table->id();
             $table->date('Buchungsdatum');
             $table->date('Valutadatum');
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bank_import');
+        Schema::dropIfExists('bank_data');
     }
 };

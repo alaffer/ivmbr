@@ -62,3 +62,5 @@ php artisan make:migration create_bank_import_table
 php artisan make:model Bank_Import
 php artisan make:filament-resource BankImport  --simple
 php artisan migrate
+php artisan make:import BankImport --model=BankImport
+php artisan make:controller BankImportController
