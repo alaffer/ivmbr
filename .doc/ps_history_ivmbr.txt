@@ -58,7 +58,9 @@ php artisan vendor:publish --tag=tables-config
 php artisan vendor:publish --tag=tables-translations
 php artisan make:export BookingsExport --model=Booking
 php artisan make:export BookingsViewExport --model=Booking
-php artisan make:migration create_bank_import_table
-php artisan make:model Bank_Import
-php artisan make:filament-resource BankImport  --simple
-php artisan migrate
+REM php artisan make:migration create_bank_data_table
+REM php artisan make:model BankData
+REM php artisan make:filament-resource BankData  --simple
+REM php artisan migrate
+REM php artisan make:import BankData --model=BankData
+REM php artisan make:controller BankDataController

@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
-use App\Models\BankImport;
+use App\Models\BankData;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
@@ -17,15 +17,16 @@ use Filament\Tables\Columns\BooleanColumn;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\BankImportResource\Pages;
 use App\Filament\Resources\BankImportResource\RelationManagers;
+use App\Filament\Resources\BankDataResource\Pages\ManageBankDatas;
 
-class BankImportResource extends Resource
+class BankDataResource extends Resource
 {
-    protected static ?string $model = BankImport::class;
+    protected static ?string $model = BankData::class;
 
-    protected static ?string $navigationGroup = 'Imports';
-    protected static ?string $navigationIcon = 'heroicon-o-cash';
-    protected static ?string $modelLabel = 'Buchungsimport';
-    protected static ?string $pluralModelLabel = 'Buchungsimports';
+    protected static ?string $navigationGroup = 'Import';
+    protected static ?string $navigationIcon = 'heroicon-o-inbox';
+    protected static ?string $modelLabel = 'Bankdaten von Import';
+    protected static ?string $pluralModelLabel = 'Bankdaten von Import';
 
     public static function form(Form $form): Form
     {
@@ -87,7 +88,8 @@ class BankImportResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageBankImports::route('/'),
+            'index' => ManageBankDatas::route('/'),
+            'importer' => ManageBankDatas::route('/import'),
         ];
     }    
 }

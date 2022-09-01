@@ -47,8 +47,10 @@ php artisan vendor:publish --tag=filament-translations   ----> published die fil
 php artisan vendor:publish --tag=filament-views          ----> published die filament-Komponenten
 
 Ergänzen von \resources\views\vendor\filament\components\layouts\base.blade.php
-Einfügen von @vite('resources/css/app.css')
-direkt vor </head>
+Einfügen von 
+	@vite('resources/css/app.css')
+direkt vor 
+	</head>
 
 
 

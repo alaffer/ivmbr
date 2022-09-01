@@ -29,3 +29,4 @@ Route::get('booking-export', [BookingController::class, 'bookingExport'])->name(
 Route::get('bookingview-export', [BookingController::class, 'bookingViewExport'])->name('bookingview-export');
 Route::get('list-bookings-export', [ListBookings::class, 'export'])->name('list-bookings-export');
 
+//Route::post('bank-data-import', [BankImportController::class, 'import'])->name('bank-data-import');
