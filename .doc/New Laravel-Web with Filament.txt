@@ -34,8 +34,8 @@ php artisan make:filament-user      ----> erzeugen eines Filament Admin-Users
 Anlegen laut dem Laraveller-Kurs
 
 
-Anpassen des Tailwind-Css
-=========================
+Anpassen und Vite-Compile des Tailwind-Css
+==========================================
 
 npm install alpinejs tailwindcss @tailwindcss/forms @tailwindcss/typography postcss postcss-custom-properties autoprefixer tippy.js --save-dev
 npx tailwindcss init                ----> erstellt die tailwind.config.js
@@ -53,8 +53,27 @@ direkt vor
 	</head>
 
 
+Anzeigen von Bildern
+====================
+Damit Bilder in der Tabelle oder im Form angezeigt werden, muss man forgendes eingeben
+
+php artisan storage:link
+
+Dadurch wird ein Link im public-Ordner angelegt und die Website findet die Bilder im Ordner (z.B. storage\images)
 
 
+Filament-Action zum Aufruf eines Controller
+===========================================
+z.B. Aufruf Export-Methode:
+	List-Action: Actions\Action::make('export')->label('Export')->url(route('category-export')),
+	Route:       Route::get('category-export', [CategoryController::class, 'categoryExport'])->name('category-export');
+	CategoryController-Methode: 
+		public function categoryExport() 
+		{
+			return Excel::download(new CategoriesExport, 'categories.xlsx');
+		} 
+
+	
 Hilfs-Pakete installieren (nützliche Tools zur Unterstützung beim Entwickeln von Laravel-Web-Apps) 
 =====================================================================================================
 siehe https://www.youtube.com/watch?v=UORMYT8Fs9Y&list=PLw3tv6t9IYo28D7HfoLnRIi84ppMBiXqs&index=24
@@ -104,3 +123,4 @@ Falls datetime verwendet wird muss man im Model das Format vorgeben
 	
 5) Danach kann man wie gewohnt php artisam migrate... laufen lassen
 	
+

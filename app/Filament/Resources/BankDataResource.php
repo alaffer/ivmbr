@@ -25,8 +25,8 @@ class BankDataResource extends Resource
 
     protected static ?string $navigationGroup = 'Import';
     protected static ?string $navigationIcon = 'heroicon-o-inbox';
-    protected static ?string $modelLabel = 'Bankdaten von Import';
-    protected static ?string $pluralModelLabel = 'Bankdaten von Import';
+    protected static ?string $modelLabel = 'Bankdaten-Import';
+    protected static ?string $pluralModelLabel = 'Bankdaten-Import';
 
     public static function form(Form $form): Form
     {

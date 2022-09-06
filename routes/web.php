@@ -5,7 +5,9 @@ use App\Http\Controllers\DepotController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BankImportController;
 use App\Filament\Resources\BookingResource\Pages\ListBookings;
+use App\Http\Livewire\BankImport;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +31,6 @@ Route::get('booking-export', [BookingController::class, 'bookingExport'])->name(
 Route::get('bookingview-export', [BookingController::class, 'bookingViewExport'])->name('bookingview-export');
 Route::get('list-bookings-export', [ListBookings::class, 'export'])->name('list-bookings-export');
 
-//Route::post('bank-data-import', [BankImportController::class, 'import'])->name('bank-data-import');
+//Route::post('bank-data-import', [BankImportController::class, 'postImport'])->name('bank-data-import');
+//Route::get('/bank', BankImport::class)->name('bank.import');
+//Route::get('csvdata-import', [BankImportController::class, 'Import'])->name('csvdata-import');
