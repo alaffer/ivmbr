@@ -88,7 +88,7 @@ class BankDataResource extends Resource
                 return $state;
                 }),
                 // TextColumn::make('belegnummer')->limit(6),
-                TextColumn::make('auftraggebername')->limit(16)->tooltip(function (TextColumn $column): ?string {
+                TextColumn::make('auftraggebername')->limit(20)->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
                     if (strlen($state) <= $column->getLimit()) {
                         return null;
@@ -96,7 +96,7 @@ class BankDataResource extends Resource
                 // Only render the tooltip if the column contents exceeds the length limit.
                 return $state;
                 }),
-                TextColumn::make('auftraggeberkonto')->limit(16)->tooltip(function (TextColumn $column): ?string {
+                TextColumn::make('auftraggeberkonto')->limit(20)->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
                     if (strlen($state) <= $column->getLimit()) {
                         return null;
@@ -105,7 +105,7 @@ class BankDataResource extends Resource
                 return $state;
                 }),
                 // TextColumn::make('auftraggeber_blz')->limit(6),
-                BooleanColumn::make('imported_in_booking')->label('Importiert'),
+                BooleanColumn::make('imported_in_booking')->label('Importiert')->alignLeft(),
             ])
             ->filters([
                 //
@@ -113,6 +113,7 @@ class BankDataResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Tables\Actions\Action::make('importBuchung')->label('Importiere Buchung')->icon('heroicon-s-upload')->color('sendto'),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -123,7 +124,6 @@ class BankDataResource extends Resource
     {
         return [
             'index' => ManageBankDatas::route('/'),
-            'importer' => ManageBankDatas::route('/import'),
         ];
     }    
 }
