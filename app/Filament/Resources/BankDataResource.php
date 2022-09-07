@@ -87,7 +87,7 @@ class BankDataResource extends Resource
                     }
                 // Only render the tooltip if the column contents exceeds the length limit.
                 return $state;
-                }),
+                })->searchable(),
                 // TextColumn::make('belegnummer')->limit(6),
                 TextColumn::make('auftraggebername')->limit(20)->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
