@@ -15,18 +15,23 @@ return new class extends Migration
     {
         Schema::create('bank_data', function (Blueprint $table) {
             $table->id();
-            $table->date('Buchungsdatum');
-            $table->date('Valutadatum');
-            $table->string('Buchungstext');
-            $table->string('Interne_Notiz')->nullable();
-            $table->string('Währung');
-            $table->decimal('Betrag', $precision = 8, $scale = 2);
-            $table->string('Belegdaten')->nullable();
-            $table->string('Belegnummer')->nullable();
-            $table->string('Auftraggebername')->nullable();
-            $table->string('Auftraggeberkonto')->nullable();
-            $table->string('Auftraggeber')->nullable();
-            $table->boolean('ImportedInBooking')->default(0);
+            $table->date('buchungsdatum');
+            $table->date('valutadatum');
+            $table->string('buchungstext');
+            $table->text('interne_notiz')->nullable();
+            $table->string('währung');
+            $table->decimal('betrag', $precision = 8, $scale = 2)->nullable(false);
+            $table->text('belegdaten')->nullable();
+            $table->string('belegnummer')->nullable();
+            $table->string('auftraggebername')->nullable();
+            $table->string('auftraggeberkonto')->nullable();
+            $table->string('auftraggeber_Blz')->nullable();
+            $table->string('empfängername')->nullable();
+            $table->string('empfängerkonto')->nullable();
+            $table->string('empfänger_blz')->nullable();
+            $table->string('zahlungsgrund')->nullable();
+            $table->string('zahlungsreferenz')->nullable();
+            $table->boolean('imported_in_bookings')->default(0);
             $table->timestamps();
      });
     }

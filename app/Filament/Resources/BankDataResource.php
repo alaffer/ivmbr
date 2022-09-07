@@ -9,6 +9,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
@@ -32,26 +33,31 @@ class BankDataResource extends Resource
     {
         return $form
             ->schema([
-                DatePicker::make('Buchungsdatum')
+                DatePicker::make('buchungsdatum')
                     ->displayFormat($format = 'Y-m-d')
                     ->format('Y-m-d')
                     ->minDate('2010-01-01')
                     ->required(),
-                DatePicker::make('Valutadatum')
+                DatePicker::make('valutadatum')
                     ->displayFormat($format = 'Y-m-d')
                     ->format('Y-m-d')
                     ->minDate('2010-01-01')
                     ->required(),
-                TextInput::make('Buchungstext'),
-                TextInput::make('Interne_Notiz'),
-                TextInput::make('Währung'),
-                TextInput::make('Betrag')->numeric()->mask(fn (TextInput\Mask $mask) => $mask->money('€', ',', 2)),
-                TextInput::make('Belegdaten'),
-                TextInput::make('Belegnummer'),
-                TextInput::make('Auftraggebername'),
-                TextInput::make('Auftraggeberkonto'),
-                TextInput::make('Auftraggeber'),
-                Toggle::make('ImportedInBooking')->label('Importiert'),
+                TextInput::make('buchungstext'),
+                TextInput::make('interne_notiz'),
+                TextInput::make('währung'),
+                TextInput::make('betrag')->numeric()->mask(fn (TextInput\Mask $mask) => $mask->money('€', ',', 2)),
+                Textarea::make('belegdaten'),
+                TextInput::make('belegnummer'),
+                TextInput::make('auftraggebername'),
+                TextInput::make('auftraggeberkonto'),
+                TextInput::make('auftraggeber_blz'),
+                TextInput::make('empfängername' ),
+                TextInput::make('empfängerkonto'),
+                TextInput::make('empfänger_blz' ),
+                TextInput::make('zahlungsgrund' ),
+                TextInput::make('zahlungsreferenz'), 
+                Toggle::make('imported_in_bookings')->label('Importiert'),
             ]);
     }
 
@@ -60,18 +66,46 @@ class BankDataResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')->hidden(),
-                TextColumn::make('Buchungsdatum')->limit(10),
-                TextColumn::make('Valutadatum')->limit(10),
-                TextColumn::make('Buchungstext')->limit(20),
-                TextColumn::make('Interne_Notiz')->limit(20),
-                TextColumn::make('Währung')->limit(3),
-                TextColumn::make('Betrag')->limit(6),
-                TextColumn::make('Belegdaten')->limit(6),
-                TextColumn::make('Belegnummer')->limit(6),
-                TextColumn::make('Auftraggebername')->limit(6),
-                TextColumn::make('Auftraggeberkonto')->limit(6),
-                TextColumn::make('Auftraggeber')->limit(6),
-                BooleanColumn::make('ImportedInBooking')->label('Importiert'),
+                TextColumn::make('buchungsdatum')->limit(10),
+                // TextColumn::make('valutadatum')->limit(10),
+                TextColumn::make('buchungstext')->limit(15)->tooltip(function (TextColumn $column): ?string {
+                    $state = $column->getState();
+                    if (strlen($state) <= $column->getLimit()) {
+                        return null;
+                    }
+                // Only render the tooltip if the column contents exceeds the length limit.
+                return $state;
+                }),
+                // TextColumn::make('interne_notiz')->limit(20),
+                TextColumn::make('währung')->limit(3),
+                TextColumn::make('betrag')->limit(7),
+                TextColumn::make('belegdaten')->limit(15)->tooltip(function (TextColumn $column): ?string {
+                    $state = $column->getState();
+                    if (strlen($state) <= $column->getLimit()) {
+                        return null;
+                    }
+                // Only render the tooltip if the column contents exceeds the length limit.
+                return $state;
+                }),
+                // TextColumn::make('belegnummer')->limit(6),
+                TextColumn::make('auftraggebername')->limit(16)->tooltip(function (TextColumn $column): ?string {
+                    $state = $column->getState();
+                    if (strlen($state) <= $column->getLimit()) {
+                        return null;
+                    }
+                // Only render the tooltip if the column contents exceeds the length limit.
+                return $state;
+                }),
+                TextColumn::make('auftraggeberkonto')->limit(16)->tooltip(function (TextColumn $column): ?string {
+                    $state = $column->getState();
+                    if (strlen($state) <= $column->getLimit()) {
+                        return null;
+                    }
+                // Only render the tooltip if the column contents exceeds the length limit.
+                return $state;
+                }),
+                // TextColumn::make('auftraggeber_blz')->limit(6),
+                BooleanColumn::make('imported_in_booking')->label('Importiert'),
             ])
             ->filters([
                 //

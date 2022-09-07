@@ -12,6 +12,6 @@ class BankData extends Model
     protected $table = 'bank_data';
     //Buchungsdatum;Valutadatum;Buchungstext ;Interne Notiz;Währung;Betrag;Belegdaten;Belegnummer;Auftraggebername;Auftraggeberkonto;Auftraggeber
 
-    public $fillable = ['Buchungsdatum', 'Valutadatum', 'Buchungstext', 'Interne_Notiz', 'Währung', 'Betrag', 'Belegdaten', 'Belegnummer', 'Auftraggebername', 'Auftraggeberkonto', 'Auftraggeber', 'ImportedInBooking'];
+    public $fillable = ['buchungsdatum', 'valutadatum', 'buchungstext', 'interne_notiz', 'währung', 'betrag', 'belegdaten', 'belegnummer', 'auftraggebername', 'auftraggeberkonto', 'auftraggeber_blz', 'empfängername', 'empfängerkonto', 'empfänger_blz','zahlungsgrund','zahlungsreferenz', 'imported_in_bookings'];
 
 }
