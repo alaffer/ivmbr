@@ -8,6 +8,7 @@ use App\Models\BankData;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
@@ -75,7 +76,7 @@ class BankDataResource extends Resource
                     }
                 // Only render the tooltip if the column contents exceeds the length limit.
                 return $state;
-                }),
+                })->searchable(),
                 // TextColumn::make('interne_notiz')->limit(20),
                 TextColumn::make('währung')->limit(3),
                 TextColumn::make('betrag')->limit(7),
@@ -95,7 +96,7 @@ class BankDataResource extends Resource
                     }
                 // Only render the tooltip if the column contents exceeds the length limit.
                 return $state;
-                }),
+                })->searchable(),
                 TextColumn::make('auftraggeberkonto')->limit(20)->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
                     if (strlen($state) <= $column->getLimit()) {
@@ -105,15 +106,33 @@ class BankDataResource extends Resource
                 return $state;
                 }),
                 // TextColumn::make('auftraggeber_blz')->limit(6),
-                BooleanColumn::make('imported_in_booking')->label('Importiert')->alignLeft(),
-            ])
+            ])->defaultSort('buchungsdatum','desc')
             ->filters([
-                //
+                Filter::make('Datum')
+                ->form([
+                    Forms\Components\DatePicker::make('buchungsdatum_from')->label('Buchungsdatum von'),
+                    Forms\Components\DatePicker::make('buchungsdatum_until')->label('Buchungsdatum bis'),
+                ])
+                ->query(function (Builder $query, array $data): Builder {
+                    return $query
+                        ->when(
+                            $data['buchungsdatum_from'],
+                            fn (Builder $query, $date): Builder => $query->whereDate('buchungsdatum', '>=', $date),
+                        )
+                        ->when(
+                            $data['buchungsdatum_until'],
+                            fn (Builder $query, $date): Builder => $query->whereDate('buchungsdatum', '<=', $date),
+                        );
+                }),
+                Filter::make('Aktive')
+                    ->query(fn (Builder $query): Builder => $query->where('deleted_at','=',null)),
+                Filter::make('Gelöschte')
+                    ->query(fn (Builder $query): Builder => $query->where('deleted_at','!=',null)),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\Action::make('importBuchung')->label('Importiere Buchung')->icon('heroicon-s-upload')->color('sendto'),
+                // Tables\Actions\DeleteAction::make(),
+                Tables\Actions\Action::make('importBuchung')->label('Importiere Buchung')->icon('heroicon-s-upload')->color('success'),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('empfänger_blz')->nullable();
             $table->string('zahlungsgrund')->nullable();
             $table->string('zahlungsreferenz')->nullable();
-            $table->boolean('imported_in_bookings')->default(0);
+            $table->softDeletes();
             $table->timestamps();
      });
     }

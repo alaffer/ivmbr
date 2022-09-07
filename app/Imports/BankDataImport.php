@@ -46,7 +46,7 @@ class BankDataImport implements ToModel, WithCustomCsvSettings, WithHeadingRow /
             'empfänger_blz' => $row['empfanger_blz'],
             'zahlungsgrund' => $row['zahlungsgrund'],
             'zahlungsreferenz' => $row['zahlungsreferenz'],
-            'imported_in_bookings' => false
+            
 
             // 'Buchungsdatum' => $this->getFromDateAttribute($row[1]),
             // 'Valutadatum' => $this->getFromDateAttribute($row[2]),
@@ -59,7 +59,7 @@ class BankDataImport implements ToModel, WithCustomCsvSettings, WithHeadingRow /
             // 'Auftraggebername' => $row[9],
             // 'Auftraggeberkonto' => $row[10],
             // 'Auftraggeber' => $row[11],
-            // 'ImportedInBooking' => false
+            
 
         ]);
 
