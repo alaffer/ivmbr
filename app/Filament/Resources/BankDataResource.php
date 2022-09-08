@@ -67,7 +67,7 @@ class BankDataResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')->hidden(),
-                TextColumn::make('buchungsdatum')->limit(10),
+                TextColumn::make('buchungsdatum')->sortable()->limit(10),
                 // TextColumn::make('valutadatum')->limit(10),
                 TextColumn::make('buchungstext')->limit(15)->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();

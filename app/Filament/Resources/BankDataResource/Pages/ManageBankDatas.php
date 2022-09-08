@@ -30,26 +30,20 @@ class ManageBankDatas extends ManageRecords
                 ->icon('heroicon-s-upload')
                 ->action(function ( array  $data) {
                     //dd($data);
-                    //dd((string) str($data['file2import']));
-                    $fn = storage_path('app/public/' . (string) str($data['file2import'])); // . (string) str($data['file2import']));//(string) str($data['file2import']) ;
-                    //$content = Storage::get($fn);
+                    $fn = storage_path('app/public/' . (string) str($data['file2import'])); 
                     //dd($fn);
-                    //dd($fn, $content);
                     Excel::import(new BankDataImport, $fn, null, 'Csv');
                     Notification::make()->title('Erfolgreich importiert')->icon('heroicon-o-document-text')->iconColor('success')->send();
                     return $this->getResource()::getUrl('index');
-                })->form([
-                    FileUpload::make('file2import')
-                    ->preserveFilenames()
-                    ->directory('imports')
-                    //->acceptedFileTypes(['text/csv','application/csv','csv'])
-                    ->maxSize(1024)
-                    ->enableOpen()
-                    ->enableDownload()
-                    // ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
-                    //     return (string) str($file->getClientOriginalName())->prepend('custom-prefix-');
-                    // })
-                ])
+                    })->form([
+                        FileUpload::make('file2import')
+                        ->preserveFilenames()
+                        ->directory('imports')
+                        //->acceptedFileTypes(['text/csv','application/csv','csv'])
+                        ->maxSize(1024)
+                        ->enableOpen()
+                        ->enableDownload()
+                    ]),
         ];
     }
 }
