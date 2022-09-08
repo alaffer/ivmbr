@@ -15,3 +15,8 @@ yarn-error.log
 /.idea
 /.vscode
 .bak
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+.vs/ivmbr/FileContentIndex/4c6850d6-b793-46d2-a2df-761fec0781e6.vsidx
+.vs/ivmbr/FileContentIndex/read.lock
+.vs/ivmbr/v17/.suo
