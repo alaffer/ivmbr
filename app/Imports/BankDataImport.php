@@ -3,22 +3,15 @@
 namespace App\Imports;
 
 use App\Models\BankData;
-use Maatwebsite\Excel\Concerns\OnEachRow;
 use Maatwebsite\Excel\Row;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\OnEachRow;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
 
 class BankDataImport implements ToModel, WithCustomCsvSettings, WithHeadingRow // ToModel
 {
-    static $fpath;
-
-    // function __construct(array $data) {
-
-    //     //dd($data);
-    //     //$this->fpath = $path;
-    // }
-
     /**
     * @param array $row
     *
@@ -27,45 +20,41 @@ class BankDataImport implements ToModel, WithCustomCsvSettings, WithHeadingRow /
     public function model(array $row)
     {
         //dd($row);
+        $bdqry = DB::table('bank_data')
+            ->where('buchungsdatum', '=', $this->getFromDateAttribute($row['buchungsdatum']))
+            ->where('buchungstext', '=', $row['buchungstext'])
+            ->where('betrag', '=', (float)$row['betrag'])
+            ->where('belegdaten', '=', $this->ReplaceSpaces($row['belegdaten']))
+            ->get();
 
-        $bd = new BankData([
-            
-            'buchungsdatum' => $this->getFromDateAttribute($row['buchungsdatum']),
-            'valutadatum' => $this->getFromDateAttribute($row['valutadatum']),
-            'buchungstext' => $row['buchungstext'],
-            'interne_notiz' => $row['interne_notiz'],
-            'währung' => $row['wahrung'],
-            'betrag' => (float)$row['betrag'],
-            'belegdaten' => $row['belegdaten'],
-            'belegnummer' => (string) str($row['belegnummer']),
-            'auftraggebername' => $row['auftraggebername'],
-            'auftraggeberkonto' => $row['auftraggeberkonto'],
-            'auftraggeber_blz' => $row['auftraggeber_blz'],
-            'empfängername' => $row['empfangername'],
-            'empfängerkonto' => $row['empfangerkonto'],
-            'empfänger_blz' => $row['empfanger_blz'],
-            'zahlungsgrund' => $row['zahlungsgrund'],
-            'zahlungsreferenz' => $row['zahlungsreferenz'],
-            
-
-            // 'Buchungsdatum' => $this->getFromDateAttribute($row[1]),
-            // 'Valutadatum' => $this->getFromDateAttribute($row[2]),
-            // 'Buchungstext' => $row[3],
-            // 'Interne_Notiz' => $row[4],
-            // 'Währung' => $row[5],
-            // 'Betrag' => $row[6],
-            // 'Belegdaten' => $row[7],
-            // 'Belegnummer' => str($row[8]),
-            // 'Auftraggebername' => $row[9],
-            // 'Auftraggeberkonto' => $row[10],
-            // 'Auftraggeber' => $row[11],
-            
-
-        ]);
-
-        //dd($row, $bd);
-
-        return $bd;
+        if($bdqry->count()==0)
+        {
+            $bd = new BankData([
+                
+                'buchungsdatum' => $this->getFromDateAttribute($row['buchungsdatum']),
+                'valutadatum' => $this->getFromDateAttribute($row['valutadatum']),
+                'buchungstext' => $row['buchungstext'],
+                'interne_notiz' => $row['interne_notiz'],
+                'währung' => $row['wahrung'],
+                'betrag' => (float)$row['betrag'],
+                'belegdaten' => $this->ReplaceSpaces($row['belegdaten']),
+                'belegnummer' => (string) str($row['belegnummer']),
+                'auftraggebername' => $row['auftraggebername'],
+                'auftraggeberkonto' => $row['auftraggeberkonto'],
+                'auftraggeber_blz' => $row['auftraggeber_blz'],
+                'empfängername' => $row['empfangername'],
+                'empfängerkonto' => $row['empfangerkonto'],
+                'empfänger_blz' => $row['empfanger_blz'],
+                'zahlungsgrund' => $row['zahlungsgrund'],
+                'zahlungsreferenz' => $row['zahlungsreferenz'],
+            ]);
+            //dd($row, $bd);
+            return $bd;
+        }
+        else {
+            //dd($bdqry);
+            return null;
+        }
     }
     public function getCsvSettings(): array
     {
@@ -84,7 +73,11 @@ class BankDataImport implements ToModel, WithCustomCsvSettings, WithHeadingRow /
         // $date=date_create($dt);
         // $dtd = date_format($date, 'Y-m-d');
         // dd($value, $dt, $dtd);
-
         return $dt;
+    }
+    public function ReplaceSpaces($input = null)
+    {
+        $output = preg_replace('!\s+!', ' ', $input);
+        return $output;
     }
 }
