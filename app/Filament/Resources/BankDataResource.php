@@ -89,7 +89,7 @@ class BankDataResource extends Resource
                 return $state;
                 })->searchable(),
                 // TextColumn::make('belegnummer')->limit(6),
-                TextColumn::make('auftraggebername')->limit(20)->tooltip(function (TextColumn $column): ?string {
+                TextColumn::make('auftraggebername')->limit(16)->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
                     if (strlen($state) <= $column->getLimit()) {
                         return null;
