@@ -41,7 +41,7 @@ class RolePolicy
      */
     public function create(User $user)
     {
-        return $user->role_id>=2;
+        return $user->role_id==3;
     }
 
     /**
@@ -53,7 +53,7 @@ class RolePolicy
      */
     public function update(User $user, Role $role)
     {
-        return $user->role_id>=2;
+        return $user->role_id==3;
     }
 
     /**
@@ -65,7 +65,7 @@ class RolePolicy
      */
     public function delete(User $user, Role $role)
     {
-        return $user->role_id>=2;
+        return $user->role_id==3;
     }
     /**
      * Determine whether the user can delete the model via th bulk-menu
@@ -76,7 +76,7 @@ class RolePolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->role_id>=2;
+        return $user->role_id==3;
     }
 
     /**
@@ -88,7 +88,7 @@ class RolePolicy
      */
     public function restore(User $user, Role $role)
     {
-        return $user->role_id>=2;
+        return $user->role_id==3;
     }
     /**
      * Determine whether the user can restore the model.
@@ -99,7 +99,7 @@ class RolePolicy
      */
     public function restoreAny(User $user)
     {
-        return $user->role_id>=2;
+        return $user->role_id==3;
     }
 
     /**
@@ -111,7 +111,7 @@ class RolePolicy
      */
     public function forceDelete(User $user, Role $role)
     {
-        return $user->role_id>=2;
+        return $user->role_id==3;
     }
     /**
      * Determine whether the user can permanently delete the model.
@@ -122,6 +122,6 @@ class RolePolicy
      */
     public function forceDeleteAny(User $user)
     {
-        return $user->role_id>=2;
+        return $user->role_id==3;
     }
 }
