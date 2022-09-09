@@ -105,6 +105,14 @@ class BankDataResource extends Resource
                 // Only render the tooltip if the column contents exceeds the length limit.
                 return $state;
                 }),
+                TextColumn::make('empfängerkonto')->limit(20)->tooltip(function (TextColumn $column): ?string {
+                    $state = $column->getState();
+                    if (strlen($state) <= $column->getLimit()) {
+                        return null;
+                    }
+                // Only render the tooltip if the column contents exceeds the length limit.
+                return $state;
+                }),
                 // TextColumn::make('auftraggeber_blz')->limit(6),
             ])->defaultSort('buchungsdatum','desc')
             ->filters([
@@ -131,11 +139,11 @@ class BankDataResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                // Tables\Actions\DeleteAction::make(),
-                Tables\Actions\Action::make('importBuchung')->label('Importiere Buchung')->icon('heroicon-s-upload')->color('success'),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\BulkAction::make('importBuchung')->label('Importiere Buchungen')->icon('heroicon-s-upload')->color('success'),
             ]);
     }
     
