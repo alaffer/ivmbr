@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use Complex\Exception;
 use App\Models\BankData;
 use Maatwebsite\Excel\Row;
 use Illuminate\Support\Facades\DB;
@@ -19,41 +20,75 @@ class BankDataImport implements ToModel, WithCustomCsvSettings, WithHeadingRow /
     */
     public function model(array $row)
     {
+        $buchdat = "buchungsdatum";
         //dd($row);
-        $bdqry = DB::table('bank_data')
-            ->where('buchungsdatum', '=', $this->getFromDateAttribute($row['buchungsdatum']))
-            ->where('buchungstext', '=', $row['buchungstext'])
-            ->where('betrag', '=', (float)$row['betrag'])
-            ->where('belegdaten', '=', $this->ReplaceSpaces($row['belegdaten']))
-            ->get();
-
-        if($bdqry->count()==0)
+        if (array_key_exists("ibuchungsdatum",$row))
         {
-            $bd = new BankData([
-                
-                'buchungsdatum' => $this->getFromDateAttribute($row['buchungsdatum']),
-                'valutadatum' => $this->getFromDateAttribute($row['valutadatum']),
-                'buchungstext' => $row['buchungstext'],
-                'interne_notiz' => $row['interne_notiz'],
-                'währung' => $row['wahrung'],
-                'betrag' => (float)$row['betrag'],
-                'belegdaten' => $this->ReplaceSpaces($row['belegdaten']),
-                'belegnummer' => (string) str($row['belegnummer']),
-                'auftraggebername' => $row['auftraggebername'],
-                'auftraggeberkonto' => $row['auftraggeberkonto'],
-                'auftraggeber_blz' => $row['auftraggeber_blz'],
-                'empfängername' => $row['empfangername'],
-                'empfängerkonto' => $row['empfangerkonto'],
-                'empfänger_blz' => $row['empfanger_blz'],
-                'zahlungsgrund' => $row['zahlungsgrund'],
-                'zahlungsreferenz' => $row['zahlungsreferenz'],
-            ]);
-            //dd($row, $bd);
-            return $bd;
+            $buchdat = "ibuchungsdatum";
         }
-        else {
-            //dd($bdqry);
-            return null;
+
+        try{
+            $bdqry = DB::table('bank_data')
+                ->where('buchungsdatum', '=', $this->getFromDateAttribute($row[$buchdat]))
+                ->where('buchungstext', '=', $row['buchungstext'])
+                ->where('betrag', '=', (float)$row['betrag'])
+                ->where('belegdaten', '=', $this->ReplaceSpaces($row['belegdaten']))
+                ->get();
+
+            if($bdqry->count()==0)
+            {
+                if (array_key_exists("zahlungsreferenz",$row))
+                {
+                    $bd = new BankData([
+                    
+                        'buchungsdatum' => $this->getFromDateAttribute($row[$buchdat]),
+                        'valutadatum' => $this->getFromDateAttribute($row['valutadatum']),
+                        'buchungstext' => $row['buchungstext'],
+                        'interne_notiz' => $row['interne_notiz'],
+                        'währung' => $row['wahrung'],
+                        'betrag' => (float)$row['betrag'],
+                        'belegdaten' => $this->ReplaceSpaces($row['belegdaten']),
+                        'belegnummer' => (string) str($row['belegnummer']),
+                        'auftraggebername' => $row['auftraggebername'],
+                        'auftraggeberkonto' => $row['auftraggeberkonto'],
+                        'auftraggeber_blz' => $row['auftraggeber_blz'],
+                        'empfängername' => $row['empfangername'],
+                        'empfängerkonto' => $row['empfangerkonto'],
+                        'empfänger_blz' => $row['empfanger_blz'],
+                        'zahlungsgrund' => $row['zahlungsgrund'],
+                        'zahlungsreferenz' => $row['zahlungsreferenz'],
+                    ]);
+                }
+                else{
+                    $bd = new BankData([
+                    
+                        'buchungsdatum' => $this->getFromDateAttribute($row[$buchdat]),
+                        'valutadatum' => $this->getFromDateAttribute($row['valutadatum']),
+                        'buchungstext' => $row['buchungstext'],
+                        'interne_notiz' => $row['interne_notiz'],
+                        'währung' => $row['wahrung'],
+                        'betrag' => (float)$row['betrag'],
+                        'belegdaten' => $this->ReplaceSpaces($row['belegdaten']),
+                        'belegnummer' => (string) str($row['belegnummer']),
+                        'auftraggebername' => $row['auftraggebername'],
+                        'auftraggeberkonto' => $row['auftraggeberkonto'],
+                        'auftraggeber_blz' => $row['auftraggeber_blz'],
+                        'empfängername' => $row['empfangername'],
+                        'empfängerkonto' => $row['empfangerkonto'],
+                        'empfänger_blz' => $row['empfanger_blz'],
+                        'zahlungsgrund' => $row['zahlungsgrund'],
+                    ]);
+                }
+                //dd($row, $bd);
+                return $bd;
+            }
+            else {
+                //dd($bdqry);
+                return null;
+            }
+        }
+        catch(Exception $e){
+            dd($e, $row);
         }
     }
     public function getCsvSettings(): array
