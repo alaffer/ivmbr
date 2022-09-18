@@ -20,4 +20,5 @@ yarn-error.log
 .vs/ivmbr/FileContentIndex/4c6850d6-b793-46d2-a2df-761fec0781e6.vsidx
 .vs/ivmbr/FileContentIndex/read.lock
 .vs/ivmbr/v17/.suo
+.vs
 public/imports/*
