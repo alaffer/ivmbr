@@ -75,6 +75,7 @@ class DepotResource extends Resource
                 TextColumn::make('bank_name')->label('Bank-Name'),
                 TextColumn::make('blz')->label('BLZ'),
                 TextColumn::make('accountType')->label('Kontoart'),
+                TextColumn::make('excelName')->label('Excel-Name'),
                 TextColumn::make('excelSort')->label('Excel-Sortierung'),
                 BooleanColumn::make('active')->label('Aktiv'),
                 TextColumn::make('created_at')->since()->label('Erstellt'),

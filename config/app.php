@@ -16,7 +16,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-
+    'baca_depot' => env('BACA_DEPOT','00404023509'), 
     /*
     |--------------------------------------------------------------------------
     | Application Environment

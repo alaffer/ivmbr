@@ -30,6 +30,8 @@ class BankDataResource extends Resource
     protected static ?string $modelLabel = 'Bankdaten-Import';
     protected static ?string $pluralModelLabel = 'Bankdaten-Import';
 
+    public $bacaDepot;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -153,4 +155,9 @@ class BankDataResource extends Resource
             'index' => ManageBankDatas::route('/'),
         ];
     }    
+
+    public function getDefaultDepot()
+    {
+        $bacaDepot = env('BACA_DEPOT','00404023509');
+    }
 }

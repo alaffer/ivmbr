@@ -30,6 +30,16 @@ class DepotFactory extends Factory
             $acc_type = $bank;
             $active = true;
         }   
+        elseif(self::$order == 2){
+            // Depot::create(['name' => '00404023509', 'bank_name' => 'Bank Austria', 'blz' => '12000', 'accountType' => 'Konto', 'excelName' => 'BA-Konto 00404023509', 'excelSort' => '3', 'remarks' => null, 'active' => '1']);
+            $bank = 'Bank Austria';
+            $blz = '12000';
+            $name = config('app.baca_depot');
+            $num = config('app.baca_depot');
+            $excelname = 'BA-Konto ' . config('app.baca_depot');
+            $acc_type = 'Konto';
+            $active = true;
+        }   
         else{
             $acc_type = fake()->randomElement(['Sparbuch', 'Konto']);
             $blz = fake()->randomElement([12000,20111]);
