@@ -145,7 +145,13 @@ class BankDataResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-                Tables\Actions\BulkAction::make('importBuchung')->label('Importiere Buchungen')->icon('heroicon-s-upload')->color('success'),
+                Tables\Actions\BulkAction::make('importBuchung')
+                    ->label('Importiere in Buchungen')
+                    ->icon('heroicon-s-upload')
+                    ->color('success')->form([
+                        
+                        
+                    ]),
             ]);
     }
     
