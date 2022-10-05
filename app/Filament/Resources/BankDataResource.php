@@ -174,11 +174,10 @@ class BankDataResource extends Resource
                 ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-                Tables\Actions\BulkAction::make('moveBuchungen')
-                    ->label('Übertrage Buchungen')
+                Tables\Actions\BulkAction::make('importBuchung')
+                    ->label('Importiere in Buchungen')
                     ->icon('heroicon-s-upload')
-                    ->color('success')
-                    ->action(fn (Collection $records)=> $records->each->url(fn (BankData $record): string => route('bankdata.move', $record))),
+                    ->color('success'),
             ]);
     }
     

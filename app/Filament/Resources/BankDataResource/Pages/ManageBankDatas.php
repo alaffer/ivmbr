@@ -37,6 +37,7 @@ class ManageBankDatas extends ManageRecords
                     return $this->getResource()::getUrl('index');
                     })->form([
                         FileUpload::make('file2import')
+                        ->label('Datei importieren')
                         ->preserveFilenames()
                         ->directory('imports')
                         //->acceptedFileTypes(['text/csv','application/csv','csv'])
