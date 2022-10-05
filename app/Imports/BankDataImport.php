@@ -55,7 +55,7 @@ class BankDataImport implements ToModel, WithCustomCsvSettings, WithHeadingRow /
                         'empfängername' => $row['empfangername'],
                         'empfängerkonto' => $row['empfangerkonto'],
                         'empfänger_blz' => $row['empfanger_blz'],
-                        'zahlungsgrund' => $row['zahlungsgrund'],
+                        'zahlungsgrund' => $this->ReplaceSpaces($row['zahlungsgrund']),
                         'zahlungsreferenz' => $row['zahlungsreferenz'],
                     ]);
                 }
@@ -76,7 +76,7 @@ class BankDataImport implements ToModel, WithCustomCsvSettings, WithHeadingRow /
                         'empfängername' => $row['empfangername'],
                         'empfängerkonto' => $row['empfangerkonto'],
                         'empfänger_blz' => $row['empfanger_blz'],
-                        'zahlungsgrund' => $row['zahlungsgrund'],
+                        'zahlungsgrund' => $this->ReplaceSpaces($row['zahlungsgrund']),
                     ]);
                 }
                 //dd($row, $bd);
@@ -112,6 +112,8 @@ class BankDataImport implements ToModel, WithCustomCsvSettings, WithHeadingRow /
     }
     public function ReplaceSpaces($input = null)
     {
+        if ($input==null)
+            return $input;
         $output = preg_replace('!\s+!', ' ', $input);
         return $output;
     }

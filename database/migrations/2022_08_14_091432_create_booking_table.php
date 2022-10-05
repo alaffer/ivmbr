@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('depot_id')->unsigned()->nullable()->constrained()->default(null);
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('category_id')->unsigned()->nullable()->constrained()->default(null);
             $table->date("paydate");
             $table->text("purpose");
             $table->integer("support_year")->nullable()->default(null);

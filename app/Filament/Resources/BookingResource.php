@@ -11,9 +11,9 @@ use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
-use Filament\Forms\Components\FieldSet;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\FieldSet;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
@@ -22,6 +22,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Tables\Columns\TextInputColumn;
 use Illuminate\Database\Eloquent\Collection;
 use pxlrbt\FilamentExcel\Exports\ExcelExport;
 use Filament\Tables\Filters\MultiSelectFilter;
@@ -87,7 +88,7 @@ class BookingResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')->hidden(),
-                TextColumn::make('depot.name')->limit(10)                    
+                TextColumn::make('depot.name')->limit(12)                    
                 ->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
                     if (strlen($state) <= $column->getLimit()) {
@@ -96,7 +97,7 @@ class BookingResource extends Resource
                 // Only render the tooltip if the column contents exceeds the length limit.
                 return $state;
                 }),
-                TextColumn::make('category.name')->limit(10)                    
+                TextColumn::make('category.name')->limit(25)->wrap()                 
                 ->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
                     if (strlen($state) <= $column->getLimit()) {

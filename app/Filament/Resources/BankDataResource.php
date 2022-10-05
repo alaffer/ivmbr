@@ -16,10 +16,14 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Columns\BooleanColumn;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\BankImportResource\Pages;
 use App\Filament\Resources\BankImportResource\RelationManagers;
 use App\Filament\Resources\BankDataResource\Pages\ManageBankDatas;
+use App\Models\Booking;
+use App\Models\Depot;
+use Filament\Forms\Components\Checkbox;
 
 class BankDataResource extends Resource
 {
@@ -61,7 +65,7 @@ class BankDataResource extends Resource
                 TextInput::make('zahlungsgrund' ),
                 TextInput::make('zahlungsreferenz'), 
                 Toggle::make('imported_in_bookings')->label('Importiert'),
-            ]);
+            ])->columns(2);
     }
 
     public static function table(Table $table): Table
@@ -115,6 +119,7 @@ class BankDataResource extends Resource
                 // Only render the tooltip if the column contents exceeds the length limit.
                 return $state;
                 }),
+                BooleanColumn::make('imported_in_bookings')->label('Importiert'),
                 // TextColumn::make('auftraggeber_blz')->limit(6),
             ])->defaultSort('buchungsdatum','desc')
             ->filters([
@@ -142,10 +147,38 @@ class BankDataResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
-            ])
+                Tables\Actions\Action::make('moveBuchung')
+                    ->label('Übertragen')
+                    ->color('success')
+                    ->action(function (BankData $record){
+                        $booking = new Booking();
+                        $baca = env('BACA_DEPOT','00404023509');
+                        $depot = Depot::where('name', 'like', $baca)->first();
+                        //dd($baca,$depot);
+                        $booking->depot_id = $depot->id;
+                        $booking->category_id = null;
+                        $booking->paydate = $record->buchungsdatum;
+                        if($record->betrag > 0)
+                            $booking->payin = $record->betrag;
+                        else
+                            $booking->payout = -1 * $record->betrag;
+                        $booking->purpose = $record->buchungstext . PHP_EOL . $record->belegdaten;
+                        $booking->person = null;
+                        $booking->remarks = null;
+                        $booking->save();
+                        $record->imported_in_bookings = true;
+                        $record->save();
+                        //dd($record);
+                    }) //: string => route('bankdata.move', $record))
+                    ->icon('heroicon-s-upload'),
+                ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-                Tables\Actions\BulkAction::make('importBuchung')->label('Importiere Buchungen')->icon('heroicon-s-upload')->color('success'),
+                Tables\Actions\BulkAction::make('moveBuchungen')
+                    ->label('Übertrage Buchungen')
+                    ->icon('heroicon-s-upload')
+                    ->color('success')
+                    ->action(fn (Collection $records)=> $records->each->url(fn (BankData $record): string => route('bankdata.move', $record))),
             ]);
     }
     

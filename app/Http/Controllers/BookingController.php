@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Exports\BookingsExport;
 use App\Exports\BookingsExportView;
 use App\Exports\BookingsViewExport;
+use App\Models\BankData;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Database\Eloquent\Collection;
 
