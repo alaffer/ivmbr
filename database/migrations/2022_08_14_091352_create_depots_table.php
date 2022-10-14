@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean('active')->default(1);
             $table->softDeletes();
             $table->timestamps();
+            $table->string('formName')->virtualAs('concat(excelName, \' (active=\', active, \')\')');
         });
     }
 

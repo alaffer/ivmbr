@@ -4,15 +4,20 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Tables;
+use App\Models\Depot;
+use Complex\Exception;
+use App\Models\Booking;
 use App\Models\BankData;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
 use Filament\Forms\Components\DatePicker;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Columns\BooleanColumn;
@@ -21,9 +26,6 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\BankImportResource\Pages;
 use App\Filament\Resources\BankImportResource\RelationManagers;
 use App\Filament\Resources\BankDataResource\Pages\ManageBankDatas;
-use App\Models\Booking;
-use App\Models\Depot;
-use Filament\Forms\Components\Checkbox;
 
 class BankDataResource extends Resource
 {
@@ -151,23 +153,29 @@ class BankDataResource extends Resource
                     ->label('Übertragen')
                     ->color('success')
                     ->action(function (BankData $record){
-                        $booking = new Booking();
-                        $baca = env('BACA_DEPOT','00404023509');
-                        $depot = Depot::where('name', 'like', $baca)->first();
-                        //dd($baca,$depot);
-                        $booking->depot_id = $depot->id;
-                        $booking->category_id = null;
-                        $booking->paydate = $record->buchungsdatum;
-                        if($record->betrag > 0)
-                            $booking->payin = $record->betrag;
-                        else
-                            $booking->payout = -1 * $record->betrag;
-                        $booking->purpose = $record->buchungstext . PHP_EOL . $record->belegdaten;
-                        $booking->person = null;
-                        $booking->remarks = null;
-                        $booking->save();
-                        $record->imported_in_bookings = true;
-                        $record->save();
+                        try{
+                            $bcheck = BankDataResource::checkBookingExists($record);
+                            // dd($bcheck);
+                            if($bcheck==false)
+                            {    
+                                $badd = BankDataResource::addBookingFromBankData($record);
+                                // dd($badd);
+                                if($badd==true)
+                                {
+                                    $record->imported_in_bookings = true;
+                                    //$record->save();
+                                    $record->delete();
+                                    Notification::make()->title('Daten erfolgreich übernommen!')->icon('heroicon-s-upload')->iconColor('success')->send();
+                                }
+                            }
+                            else{
+                                $record->delete();
+                                Notification::make()->title('Fehler! Daten bereits vorhanden! Datensatz entfernt!')->icon('heroicon-s-exclamation-circle')->iconColor('danger')->send();
+                            }
+                        }
+                        catch(Exception $e){
+                            Notification::make()->title('Fehler bei der Datenübernahme' . $e->getMessage())->icon('heroicon-s-exclamation-circle')->iconColor('danger')->send();
+                        }
                         //dd($record);
                     }) //: string => route('bankdata.move', $record))
                     ->icon('heroicon-s-upload'),
@@ -191,5 +199,71 @@ class BankDataResource extends Resource
     public function getDefaultDepot()
     {
         $bacaDepot = env('BACA_DEPOT','00404023509');
+    }
+    public static function checkBookingExists(BankData $record = null)
+    {
+        if($record->betrag > 0)
+        {                            
+            $bcheck = Booking::where('paydate','=',$record->buchungsdatum)
+            ->where('purpose','=',BankDataResource::createPurpose($record))
+            ->where('payin','=',$record->betrag)
+            // ->orwhere('payout','=',(-1) * $record->betrag)
+            ->get();
+        }                        
+        else if($record->betrag < 0)
+        {                            
+            $bcheck = Booking::where('paydate','=',$record->buchungsdatum)
+            ->where('purpose','=',BankDataResource::createPurpose($record))
+            //->where('payin','=',$record->betrag)
+            ->where('payout','=',(-1) * $record->betrag)
+            ->get();
+        }                        
+        else 
+        {                            
+            $bcheck = Booking::where('paydate','=',$record->buchungsdatum)
+            ->where('purpose','=',BankDataResource::createPurpose($record))
+            ->where('payin','=',0)
+            ->where('payout','=',0)
+            ->get();
+        }                        
+        //dd($bcheck, $bcheck->count());
+        return $bcheck->count() != 0;
+    }    
+    public static function addBookingFromBankData(BankData $record = null)
+    {
+        try{
+            $booking = new Booking();
+            $baca = env('BACA_DEPOT','00404023509');
+            $depot = Depot::where('name', 'like', $baca)->first();
+            //dd($baca,$depot);
+            $booking->depot_id = $depot->id;
+            $booking->category_id = null;
+            $booking->paydate = $record->buchungsdatum;
+            if($record->betrag > 0)
+                $booking->payin = $record->betrag;
+            else
+                $booking->payout = -1 * $record->betrag;
+            
+            $booking->purpose = BankDataResource::createPurpose($record);
+            $booking->person = null;
+            $booking->remarks = null;
+            $booking->save();
+            return true;
+        }
+        catch(Exception $e){
+            Notification::make()->title('Fehler bei der Datenübernahme' . $e->getMessage())->icon('heroicon-exclamation-circle')->iconColor('danger')->send();
+            return false;
+        }
+    }
+    static function createPurpose(BankData $record = null)
+    {
+        if($record->buchungstext == null & $record->belegdaten == null)
+            return null;
+        if($record->buchungstext == null & $record->belegdaten != null)
+            return $record->belegdaten;
+        if($record->buchungstext != null & $record->belegdaten == null)
+            return $record->buchungstext;
+        if($record->buchungstext != null & $record->belegdaten != null)
+            return $record->buchungstext . PHP_EOL . $record->belegdaten;
     }
 }
