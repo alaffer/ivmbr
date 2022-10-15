@@ -47,7 +47,7 @@ class BookingResource extends Resource
             ->schema([
                 Select::make('depot_id')
                     -> label('Depot')
-                    -> relationship('depot', 'formName', fn (Builder $query) => $query->orderBy('active', 'desc')->orderBy('formName', 'asc'))
+                    -> relationship('depot', 'formName', fn (Builder $query) => $query->orderBy('active', 'desc')->orderBy('excelSort', 'asc'))
                     -> preload(),
                 Select::make('category_id')
                     -> label('Kategorie')
