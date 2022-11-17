@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -25,8 +26,12 @@ return new class extends Migration
             $table->boolean('active')->default(1);
             $table->softDeletes();
             $table->timestamps();
-            $table->string('formName')->virtualAs('concat(excelName, \' (active=\', if(active=0,\'nein\',\'ja\'), \')\')');
+            // // nur für MySQL möglich
+            //$table->string('formName')->nullable()->As('concat(excelName, \' (', if(active=0,\'inaktiv\',\'aktiv\'), \')\')');
         });
+        // // nur für SQL-Server möglich und auch notwendig
+        DB::unprepared("ALTER TABLE dbo.depots ADD formName AS '[' + cast(id as varchar) + '] ' +  
+                        excelName  + case when active=1 then ' (aktiv)' else ' (inaktiv)' END;");
     }
 
     /**

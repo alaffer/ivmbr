@@ -114,13 +114,27 @@ Verwendung eines SQL Server i Laravel
 		DB_USERNAME=sa                       # oder anderer berechtigter Benutzer
 		DB_PASSWORD=88Ivm88:
 		###################################
-		DB_DATABASE=ivmbrdb
+		DB_DATABASE=ivmbrdb					 # muss unbedingt vor der Migration angelegt sein
 		
-4) Models anpassen
+4) config/database.php anpassen sqlsvr als default-connection eintragen
+
+    'default' => env('DB_CONNECTION', 'sqlsvr'),
+statt 
+	'default' => env('DB_CONNECTION', 'mysql'),+
+
+5) config-Cache löschen und neu Erstellen
+	php artisan cache:clear
+	php artisan config:cache
+	
+6) Models anpassen
 Falls datetime verwendet wird muss man im Model das Format vorgeben
 	
 	protected $dateFormat = 'd-m-Y H:i:s';
+
+7) Migration an SQL SERVER anpassen z.B. virtualAs muss man so erstellen - das erzeugt eine berechnete Spalte (siehe depot-Migration)
+
+	DB::unprepared("ALTER TABLE dbo.depots ADD formName AS '[' + cast(id as varchar) + '] ' +  excelName  + case when active=1 then ' (aktiv)' else ' (inaktiv)' END;");
 	
-5) Danach kann man wie gewohnt php artisam migrate... laufen lassen
+8) Danach kann man wie gewohnt php artisam migrate... oder php artisam migrate:fresh --seed laufen lassen
 	
 
