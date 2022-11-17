@@ -15,7 +15,7 @@ class Depot extends Model
     protected $casts = [
         'active' => 'boolean',
     ];
-    protected $dateFormat = 'd-m-Y H:i:s';
+    //protected $dateFormat = 'd-m-Y H:i:s';
 
     public function bookings()
     {
