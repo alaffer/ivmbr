@@ -23,6 +23,7 @@ class User extends Authenticatable implements FilamentUser
         'email',
         'password',
     ];
+    protected $dateFormat = 'd-m-Y H:i:s';
 
     /**
      * The attributes that should be hidden for serialization.

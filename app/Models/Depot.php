@@ -15,6 +15,8 @@ class Depot extends Model
     protected $casts = [
         'active' => 'boolean',
     ];
+    protected $dateFormat = 'd-m-Y H:i:s';
+
     public function bookings()
     {
         return $this->hasMany(Booking::class);

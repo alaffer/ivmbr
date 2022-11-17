@@ -16,6 +16,8 @@ class Category extends Model
         'active' => 'boolean',
         'is_employee_support' => 'boolean',
     ];
+    protected $dateFormat = 'd-m-Y H:i:s';
+
     public function bookings()
     {
         return $this->hasMany(Booking::class);

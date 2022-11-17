@@ -30,8 +30,7 @@ return new class extends Migration
             //$table->string('formName')->nullable()->As('concat(excelName, \' (', if(active=0,\'inaktiv\',\'aktiv\'), \')\')');
         });
         // // nur für SQL-Server möglich und auch notwendig
-        DB::unprepared("ALTER TABLE dbo.depots ADD formName AS '[' + cast(id as varchar) + '] ' +  
-                        excelName  + case when active=1 then ' (aktiv)' else ' (inaktiv)' END;");
+        DB::unprepared("ALTER TABLE dbo.depots ADD formName AS '[' + cast(id as varchar) + '] ' + excelName  + case when active=1 then ' (aktiv)' else ' (inaktiv)' END;");
     }
 
     /**
