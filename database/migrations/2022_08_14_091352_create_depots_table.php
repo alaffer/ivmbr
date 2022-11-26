@@ -27,9 +27,9 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
             // // nur für MySQL möglich
-            //$table->string('formName')->nullable()->As('concat(excelName, \' (', if(active=0,\'inaktiv\',\'aktiv\'), \')\')');
+            // //$table->string('formName')->virtualAs('concat(excelName, \' (active=\', if(active=0,\'nein\',\'ja\'), \')\')');
         });
-        // // nur für SQL-Server möglich und auch notwendig
+        // nur für SQL-Server möglich und auch notwendig
         DB::unprepared("ALTER TABLE dbo.depots ADD formName AS '[' + cast(id as varchar) + '] ' + excelName  + case when active=1 then ' (aktiv)' else ' (inaktiv)' END;");
     }
 
