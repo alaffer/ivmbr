@@ -14,7 +14,10 @@ class BookingsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+        /**
+         * User-login language must be set to us_english
+         */
+
 
         \DB::table('bookings')->delete();
         
@@ -1520,6 +1523,7 @@ class BookingsTableSeeder extends Seeder
                 'updated_at' => '2013-04-30 11:20:50.340',
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
@@ -1901,7 +1905,16 @@ class BookingsTableSeeder extends Seeder
                 'depot_id' => '3',
                 'category_id' => '7',
                 'paydate' => '2012-04-04',
-                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 120953.426.026.918 04.04.2012                       00404 023 509 Empfänger:     Stefan Schiller Kontonummer: 50593 098 000 Bankleitzahl: 12000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 120953.426.026.918
+ 04.04.2012                       00404 023 509
+ Empfänger:     Stefan Schiller
+ Kontonummer: 50593 098 000 Bankleitzahl: 12000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -1916,7 +1929,17 @@ class BookingsTableSeeder extends Seeder
                 'depot_id' => '3',
                 'category_id' => '6',
                 'paydate' => '2012-04-04',
-                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 120953.426.026.978 04.04.2012                       00404 023 509 Empfänger:     Manfred Tsuchiya-Philipp Kontonummer: 00006518273   Bankleitzahl: 60000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Weiterbildungsunterstützung Japanischkurs Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 120953.426.026.978
+ 04.04.2012                       00404 023 509
+ Empfänger:     Manfred Tsuchiya-Philipp
+ Kontonummer: 00006518273   Bankleitzahl: 60000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Weiterbildungsunterstützung
+ Japanischkurs
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -1931,7 +1954,16 @@ class BookingsTableSeeder extends Seeder
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-04-04',
-                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 120953.426.027.068 04.04.2012                       00404 023 509 Empfänger:     Tatjana Neubauer Kontonummer: 00756 387 700 Bankleitzahl: 20151 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 120953.426.027.068
+ 04.04.2012                       00404 023 509
+ Empfänger:     Tatjana Neubauer
+ Kontonummer: 00756 387 700 Bankleitzahl: 20151
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -1946,7 +1978,16 @@ class BookingsTableSeeder extends Seeder
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-04-04',
-                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 120953.426.027.038 04.04.2012                       00404 023 509 Empfänger:     Marietta Beltermann-Faber Kontonummer: 00034951792   Bankleitzahl: 20111 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 120953.426.027.038
+ 04.04.2012                       00404 023 509
+ Empfänger:     Marietta Beltermann-Faber
+ Kontonummer: 00034951792   Bankleitzahl: 20111
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -1961,7 +2002,16 @@ class BookingsTableSeeder extends Seeder
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-04-04',
-                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 120953.426.027.008 04.04.2012                       00404 023 509 Empfänger:     Yvonne Paul Kontonummer: 02301454084   Bankleitzahl: 20815 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 120953.426.027.008
+ 04.04.2012                       00404 023 509
+ Empfänger:     Yvonne Paul
+ Kontonummer: 02301454084   Bankleitzahl: 20815
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -1976,7 +2026,16 @@ class BookingsTableSeeder extends Seeder
                 'depot_id' => '3',
                 'category_id' => '1',
                 'paydate' => '2012-04-04',
-                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 120953.426.026.948 04.04.2012                       00404 023 509 Empfänger:     Stefan Schoellbauer Kontonummer: 41023700485   Bankleitzahl: 20111 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Heirats- oder Kinder-Prämie Betrag: ---------- EUR          100,00',
+                'purpose' => 'Online-Auftrag vom 04.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 120953.426.026.948
+ 04.04.2012                       00404 023 509
+ Empfänger:     Stefan Schoellbauer
+ Kontonummer: 41023700485   Bankleitzahl: 20111
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Heirats- oder Kinder-Prämie
+ Betrag:
+ ----------
+ EUR          100,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '100.00',
@@ -2112,7 +2171,17 @@ Verlag Druck und Grafik',
                 'depot_id' => '3',
                 'category_id' => '20',
                 'paydate' => '2012-05-11',
-                'purpose' => 'Gutschrift a/IVM TECHNICAL CONSULTANTS  GUTSCHRIFT Belegnr.: 121324.858.119.828 11.05.2012                       00404 023 509 Zahlungsempf.: Betriebsratskonto IVM-TC Wien GmbH, 2331 Vösendorf Auftraggeber:  IVM TECHNICAL CONSULTANTS Kontonummer: 00001451707   Bankleitzahl: 32250 Zahlungsgrund: BR-Umlage Betrag: ---------- EUR        1.194,84',
+                'purpose' => 'Gutschrift a/IVM TECHNICAL CONSULTANTS  GUTSCHRIFT
+ Belegnr.: 121324.858.119.828
+ 11.05.2012                       00404 023 509
+ Zahlungsempf.: Betriebsratskonto
+ IVM-TC Wien GmbH, 2331 Vösendorf
+ Auftraggeber:  IVM TECHNICAL CONSULTANTS
+ Kontonummer: 00001451707   Bankleitzahl: 32250
+ Zahlungsgrund: BR-Umlage
+ Betrag:
+ ----------
+ EUR        1.194,84',
                 'support_year' => NULL,
                 'payin' => '1194.84',
                 'payout' => NULL,
@@ -2158,8 +2227,18 @@ Verlag Druck und Grafik',
                 'depot_id' => '3',
                 'category_id' => '15',
                 'paydate' => '2012-05-25',
-                'purpose' => 'Online-Auftrag vom 25.05.  AUFTRAGSBESTÄTIGUNG Belegnr.: 121464.615.055.198 25.05.2012                       00404 023 509 Empfänger:     Michael Maier Kontonummer: 16101800189   Bankleitzahl: 20815 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kostenersatz - 
-Fahrt Zeltweg - Wein H/R mit dem Auto BR-Treffen vom 3.4.2012 Betrag: ---------- EUR           70,00',
+                'purpose' => 'Online-Auftrag vom 25.05.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 121464.615.055.198
+ 25.05.2012                       00404 023 509
+ Empfänger:     Michael Maier
+ Kontonummer: 16101800189   Bankleitzahl: 20815
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kostenersatz - 
+Fahrt Zeltweg - Wein H/R mit dem Auto
+ BR-Treffen vom 3.4.2012
+ Betrag:
+ ----------
+ EUR           70,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '70.00',
@@ -2174,7 +2253,17 @@ Fahrt Zeltweg - Wein H/R mit dem Auto BR-Treffen vom 3.4.2012 Betrag: -------
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-05-25',
-                'purpose' => 'Online-Auftrag vom 25.05.  AUFTRAGSBESTÄTIGUNG Belegnr.: 121464.615.055.228 25.05.2012                       00404 023 509 Empfänger:     Michael Kapfenberger Kontonummer: 00100139035   Bankleitzahl: 44770 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Hallenvolleyballmannschaft Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 25.05.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 121464.615.055.228
+ 25.05.2012                       00404 023 509
+ Empfänger:     Michael Kapfenberger
+ Kontonummer: 00100139035   Bankleitzahl: 44770
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Hallenvolleyballmannschaft
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -2189,7 +2278,17 @@ Fahrt Zeltweg - Wein H/R mit dem Auto BR-Treffen vom 3.4.2012 Betrag: -------
                 'depot_id' => '3',
                 'category_id' => '15',
                 'paydate' => '2012-05-25',
-                'purpose' => 'Online-Auftrag vom 25.05.  AUFTRAGSBESTÄTIGUNG Belegnr.: 121464.615.055.168 25.05.2012                       00404 023 509 Empfänger:     Michael Maier Kontonummer: 16101800189   Bankleitzahl: 20815 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Essen Kostenersatz BR Essen Kostenersatz Betrag: ---------- EUR          120,00',
+                'purpose' => 'Online-Auftrag vom 25.05.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 121464.615.055.168
+ 25.05.2012                       00404 023 509
+ Empfänger:     Michael Maier
+ Kontonummer: 16101800189   Bankleitzahl: 20815
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Essen Kostenersatz
+ BR Essen Kostenersatz
+ Betrag:
+ ----------
+ EUR          120,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '120.00',
@@ -2364,8 +2463,21 @@ Zug retour nach Wien',
                 'depot_id' => '3',
                 'category_id' => '20',
                 'paydate' => '2012-06-11',
-                'purpose' => 'Gutschrift a/IVM TECHNICAL CONSULTANTS  GUTSCHRIFT Belegnr.: 121634.465.009.228 11.06.2012                EUR    00404 023 509 Zahlungsempf.: Betriebsratskonto  IVM-TC Wien GmbH, 2331 Vösendorf IBAN: AT962015100404023509                 
-BIC: BKAUATWWXXX  Zahlungsgrund: BR-Umlage  Auftraggeber: IVM TECHNICAL CONSULTANTS                                  Valuta:    11.06 IBAN: AT753225000001451707                 BIC: RLNWATWWGTD ID: Betrag:     EUR Fortsetzung folgt auf Blatt 2 GUTSCHRIFT Belegnr.: 121634.465.009.228 11.06.2012                EUR 1.230,36',
+                'purpose' => 'Gutschrift a/IVM TECHNICAL CONSULTANTS  GUTSCHRIFT
+ Belegnr.: 121634.465.009.228
+ 11.06.2012                EUR    00404 023 509
+ Zahlungsempf.: Betriebsratskonto 
+ IVM-TC Wien GmbH, 2331 Vösendorf
+ IBAN: AT962015100404023509                 
+BIC: BKAUATWWXXX 
+ Zahlungsgrund: BR-Umlage 
+ Auftraggeber: IVM TECHNICAL CONSULTANTS                                  Valuta:    11.06
+ IBAN: AT753225000001451707                 BIC: RLNWATWWGTD
+ ID: Betrag:     EUR
+ Fortsetzung folgt auf Blatt 2
+ GUTSCHRIFT
+ Belegnr.: 121634.465.009.228
+ 11.06.2012                EUR 1.230,36',
                 'support_year' => NULL,
                 'payin' => '1230.36',
                 'payout' => NULL,
@@ -2380,7 +2492,17 @@ BIC: BKAUATWWXXX  Zahlungsgrund: BR-Umlage  Auftraggeber: IVM TECHNICAL CONSUL
                 'depot_id' => '3',
                 'category_id' => '2',
                 'paydate' => '2012-06-19',
-                'purpose' => 'Online-Auftrag vom 19.06.  AUFTRAGSBESTÄTIGUNG Belegnr.: 121713.363.001.568 19.06.2012                       00404 023 509 Empfänger:     Wolfgang Ninaus Kontonummer: 00201042470   Bankleitzahl: 20815 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Eventunterstützung Abteilungsausflug Betrag: ---------- EUR           90,00',
+                'purpose' => 'Online-Auftrag vom 19.06.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 121713.363.001.568
+ 19.06.2012                       00404 023 509
+ Empfänger:     Wolfgang Ninaus
+ Kontonummer: 00201042470   Bankleitzahl: 20815
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Eventunterstützung
+ Abteilungsausflug
+ Betrag:
+ ----------
+ EUR           90,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '90.00',
@@ -2395,7 +2517,18 @@ BIC: BKAUATWWXXX  Zahlungsgrund: BR-Umlage  Auftraggeber: IVM TECHNICAL CONSUL
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-06-19',
-                'purpose' => 'Online-Auftrag vom 19.06.  AUFTRAGSBESTÄTIGUNG Belegnr.: 121713.363.001.538 19.06.2012                       00404 023 509 Empfänger:     Adam Pauli Kontonummer: 00000048256   Bankleitzahl: 36219 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Förderung der Kletterhallen Jahresk arte Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 19.06.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 121713.363.001.538
+ 19.06.2012                       00404 023 509
+ Empfänger:     Adam Pauli
+ Kontonummer: 00000048256   Bankleitzahl: 36219
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Förderung der Kletterhallen Jahresk
+ arte
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -2425,7 +2558,16 @@ BIC: BKAUATWWXXX  Zahlungsgrund: BR-Umlage  Auftraggeber: IVM TECHNICAL CONSUL
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-06-27',
-                'purpose' => 'Online-Auftrag vom 27.06.  AUFTRAGSBESTÄTIGUNG Belegnr.: 121792.123.075.458 27.06.2012                       00404 023 509 Empfänger:     Carlos Sanchez Kontonummer: 00006059539   Bankleitzahl: 45010 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           36,00',
+                'purpose' => 'Online-Auftrag vom 27.06.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 121792.123.075.458
+ 27.06.2012                       00404 023 509
+ Empfänger:     Carlos Sanchez
+ Kontonummer: 00006059539   Bankleitzahl: 45010
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           36,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '36.00',
@@ -2440,7 +2582,16 @@ BIC: BKAUATWWXXX  Zahlungsgrund: BR-Umlage  Auftraggeber: IVM TECHNICAL CONSUL
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-06-27',
-                'purpose' => 'Online-Auftrag vom 27.06.  AUFTRAGSBESTÄTIGUNG Belegnr.: 121792.123.075.398 27.06.2012                       00404 023 509 Empfänger:     Martin Mitterer Kontonummer: 81210001867   Bankleitzahl: 14000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 27.06.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 121792.123.075.398
+ 27.06.2012                       00404 023 509
+ Empfänger:     Martin Mitterer
+ Kontonummer: 81210001867   Bankleitzahl: 14000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -2455,7 +2606,16 @@ BIC: BKAUATWWXXX  Zahlungsgrund: BR-Umlage  Auftraggeber: IVM TECHNICAL CONSUL
                 'depot_id' => '3',
                 'category_id' => '17',
                 'paydate' => '2012-06-27',
-                'purpose' => 'Online-Auftrag vom 27.06.  AUFTRAGSBESTÄTIGUNG Belegnr.: 121792.123.075.488 27.06.2012                       00404 023 509 Empfänger:     Druck & Grafik Kontonummer: 00000610808   Bankleitzahl: 19520 Auftraggeber:  IVM TC Wien BRV DR. Philipp Zahlungsgrund: Re.15376/142                000000400832 Betrag: ---------- EUR          219,78',
+                'purpose' => 'Online-Auftrag vom 27.06.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 121792.123.075.488
+ 27.06.2012                       00404 023 509
+ Empfänger:     Druck & Grafik
+ Kontonummer: 00000610808   Bankleitzahl: 19520
+ Auftraggeber:  IVM TC Wien BRV DR. Philipp
+ Zahlungsgrund: Re.15376/142                000000400832
+ Betrag:
+ ----------
+ EUR          219,78',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '219.78',
@@ -2470,7 +2630,16 @@ BIC: BKAUATWWXXX  Zahlungsgrund: BR-Umlage  Auftraggeber: IVM TECHNICAL CONSUL
                 'depot_id' => '3',
                 'category_id' => '3',
                 'paydate' => '2012-06-27',
-                'purpose' => 'Online-Auftrag vom 27.06.  AUFTRAGSBESTÄTIGUNG Belegnr.: 121792.123.075.428 27.06.2012                       00404 023 509 Empfänger:     Michael Maurer Kontonummer: 20010782059   Bankleitzahl: 14200 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Weiterbildgsunterst. Betrag: ---------- EUR           50,00',
+                'purpose' => 'Online-Auftrag vom 27.06.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 121792.123.075.428
+ 27.06.2012                       00404 023 509
+ Empfänger:     Michael Maurer
+ Kontonummer: 20010782059   Bankleitzahl: 14200
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Weiterbildgsunterst.
+ Betrag:
+ ----------
+ EUR           50,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '50.00',
@@ -2575,11 +2744,22 @@ BIC: BKAUATWWXXX  Zahlungsgrund: BR-Umlage  Auftraggeber: IVM TECHNICAL CONSUL
                 'depot_id' => '3',
                 'category_id' => '20',
                 'paydate' => '2012-07-10',
-                'purpose' => 'Gutschrift a/IVM TECHNICAL CONSULTANTS  GUTSCHRIFT Belegnr.: 121924.711.091.658 10.07.2012                EUR    00404 023 509 Zahlungsempf.: Betriebsratskonto                  
-IVM -TC Wien GmbH, 2331 Vösendorf  IBAN: AT962015100404023509                 BIC: BKAUATWW  ID: Zahlungsgrund: BR-Umlage Zahlungsref.: Zahlungszweck: Auftraggeber: IVM TECHNICAL CONSULTANTS
-Valuta:    10.07 IBAN: AT753225000001451707  BIC: RLNWATWWGTD
+                'purpose' => 'Gutschrift a/IVM TECHNICAL CONSULTANTS  GUTSCHRIFT
+ Belegnr.: 121924.711.091.658
+ 10.07.2012                EUR    00404 023 509
+ Zahlungsempf.: Betriebsratskonto                  
+IVM -TC Wien GmbH, 2331 Vösendorf 
+ IBAN: AT962015100404023509                 BIC: BKAUATWW 
+ ID:
+ Zahlungsgrund: BR-Umlage
+ Zahlungsref.:
+ Zahlungszweck:
+ Auftraggeber: IVM TECHNICAL CONSULTANTS
+Valuta:    10.07
+ IBAN: AT753225000001451707  BIC: RLNWATWWGTD
 ID:
-Betrag:     EUR 1.240,17 Auftr.geb.Ref:',
+Betrag:     EUR 1.240,17
+ Auftr.geb.Ref:',
                 'support_year' => NULL,
                 'payin' => '1240.17',
                 'payout' => NULL,
@@ -2594,7 +2774,16 @@ Betrag:     EUR 1.240,17 Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '1',
                 'paydate' => '2012-07-16',
-                'purpose' => 'Online-Auftrag vom 16.07.  AUFTRAGSBESTÄTIGUNG Belegnr.: 121982.951.051.218 16.07.2012                       00404 023 509 Empfänger:     Wolfgang Koch Kontonummer: 00008145245   Bankleitzahl: 35000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Heirats-Prämie Betrag: ---------- EUR          100,00',
+                'purpose' => 'Online-Auftrag vom 16.07.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 121982.951.051.218
+ 16.07.2012                       00404 023 509
+ Empfänger:     Wolfgang Koch
+ Kontonummer: 00008145245   Bankleitzahl: 35000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Heirats-Prämie
+ Betrag:
+ ----------
+ EUR          100,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '100.00',
@@ -2609,7 +2798,17 @@ Betrag:     EUR 1.240,17 Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-07-16',
-                'purpose' => 'Online-Auftrag vom 16.07.  AUFTRAGSBESTÄTIGUNG Belegnr.: 121982.951.051.188 16.07.2012                       00404 023 509 Empfänger:     Reinhold Wechselberger Kontonummer: 00011349495   Bankleitzahl: 32000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Taekwondo Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 16.07.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 121982.951.051.188
+ 16.07.2012                       00404 023 509
+ Empfänger:     Reinhold Wechselberger
+ Kontonummer: 00011349495   Bankleitzahl: 32000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Taekwondo
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -2639,7 +2838,16 @@ Betrag:     EUR 1.240,17 Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '3',
                 'paydate' => '2012-08-06',
-                'purpose' => 'Online-Auftrag vom 06.08.  AUFTRAGSBESTÄTIGUNG Belegnr.: 122194.484.039.268 06.08.2012                       00404 023 509 Empfänger:     Rainer Bürgl Kontonummer: 00764 075 958 Bankleitzahl: 20151 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 06.08.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 122194.484.039.268
+ 06.08.2012                       00404 023 509
+ Empfänger:     Rainer Bürgl
+ Kontonummer: 00764 075 958 Bankleitzahl: 20151
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -2700,10 +2908,20 @@ Betrag:     EUR 1.240,17 Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '20',
                 'paydate' => '2012-08-13',
-                'purpose' => 'Gutschrift a/IVM TECHNICAL CONSULTANTS  GUTSCHRIFT Belegnr.: 122262.960.080.988 13.08.2012                EUR    00404 023 509 Zahlungsempf.: Betriebsratskonto
-IVM-TC Wien GmbH, 2331 Vösendorf  IBAN: AT962015100404023509  BIC: BKAUATWWAMS  Zahlungsgrund: BR-Umlage 
-Zahlungsref.: Zahlungszweck: Auftraggeber: IVM TECHNICAL CONSULTANTS
-Valuta:    13.08 IBAN: AT753225000001451707  BIC: RLNWATWWGTD Betrag:     EUR 1.132,63 Auftr.geb.Ref:',
+                'purpose' => 'Gutschrift a/IVM TECHNICAL CONSULTANTS  GUTSCHRIFT
+ Belegnr.: 122262.960.080.988
+ 13.08.2012                EUR    00404 023 509
+ Zahlungsempf.: Betriebsratskonto
+IVM-TC Wien GmbH, 2331 Vösendorf 
+ IBAN: AT962015100404023509  BIC: BKAUATWWAMS 
+ Zahlungsgrund: BR-Umlage 
+Zahlungsref.:
+ Zahlungszweck:
+ Auftraggeber: IVM TECHNICAL CONSULTANTS
+Valuta:    13.08
+ IBAN: AT753225000001451707  BIC: RLNWATWWGTD
+ Betrag:     EUR 1.132,63
+ Auftr.geb.Ref:',
                 'support_year' => NULL,
                 'payin' => '1132.63',
                 'payout' => NULL,
@@ -2748,9 +2966,17 @@ Valuta:    13.08 IBAN: AT753225000001451707  BIC: RLNWATWWGTD Betrag:     EUR 
                 'depot_id' => '3',
                 'category_id' => '20',
                 'paydate' => '2012-09-11',
-                'purpose' => 'Gutschrift a/IVM TECHNICAL CONSULTANTS  GUTSCHRIFT Belegnr.: 122553.105.001.608 11.09.2012                EUR    00404 023 509 Zahlungsempf.: Betriebsratskonto                  IVM-TC Wien GmbH, 2331 Vösendorf IBAN: AT962015100404023509  BIC: BKAUATWWAMS Zahlungsgrund: BR-Umlage  
+                'purpose' => 'Gutschrift a/IVM TECHNICAL CONSULTANTS  GUTSCHRIFT
+ Belegnr.: 122553.105.001.608
+ 11.09.2012                EUR    00404 023 509
+ Zahlungsempf.: Betriebsratskonto                  IVM-TC Wien GmbH, 2331 Vösendorf
+ IBAN: AT962015100404023509  BIC: BKAUATWWAMS
+ Zahlungsgrund: BR-Umlage  
 Auftraggeber: IVM TECHNICAL CONSULTANTS
-Valuta:    11.09 IBAN: AT753225000001451707  BIC: RLNWATWWGTD Betrag:     EUR 1.155,70 Auftr.geb.Ref:',
+Valuta:    11.09
+ IBAN: AT753225000001451707  BIC: RLNWATWWGTD
+ Betrag:     EUR 1.155,70
+ Auftr.geb.Ref:',
                 'support_year' => NULL,
                 'payin' => '1155.70',
                 'payout' => NULL,
@@ -2765,7 +2991,16 @@ Valuta:    11.09 IBAN: AT753225000001451707  BIC: RLNWATWWGTD Betrag:     EUR 
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-09-14',
-                'purpose' => 'Online-Auftrag vom 14.09.  AUFTRAGSBESTÄTIGUNG Belegnr.: 122584.078.002.578 14.09.2012                       00404 023 509 Empfänger:     Stefan Schiller Kontonummer: 50593 098 000 Bankleitzahl: 12000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 14.09.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 122584.078.002.578
+ 14.09.2012                       00404 023 509
+ Empfänger:     Stefan Schiller
+ Kontonummer: 50593 098 000 Bankleitzahl: 12000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -2810,7 +3045,16 @@ Valuta:    11.09 IBAN: AT753225000001451707  BIC: RLNWATWWGTD Betrag:     EUR 
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-09-25',
-                'purpose' => 'Online-Auftrag vom 25.09.  AUFTRAGSBESTÄTIGUNG Belegnr.: 122693.148.002.068 25.09.2012                       00404 023 509 Empfänger:     Martin Mitterer Kontonummer: 81210001867   Bankleitzahl: 14000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 25.09.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 122693.148.002.068
+ 25.09.2012                       00404 023 509
+ Empfänger:     Martin Mitterer
+ Kontonummer: 81210001867   Bankleitzahl: 14000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -2972,7 +3216,16 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '6',
                 'paydate' => '2012-11-05',
-                'purpose' => 'Online-Auftrag vom 05.11.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123103.000.271.328 05.11.2012                       00404 023 509 Empfänger:     Elisabeth Gartmayer Kontonummer: 41172970000   Bankleitzahl: 42750 Auftraggeber:  Laffer Andreas Zahlungsgrund: IVM BR Weiterbildungsunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 05.11.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123103.000.271.328
+ 05.11.2012                       00404 023 509
+ Empfänger:     Elisabeth Gartmayer
+ Kontonummer: 41172970000   Bankleitzahl: 42750
+ Auftraggeber:  Laffer Andreas
+ Zahlungsgrund: IVM BR Weiterbildungsunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -2987,7 +3240,16 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-11-05',
-                'purpose' => 'Online-Auftrag vom 05.11.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123103.000.271.298 05.11.2012                       00404 023 509 Empfänger:     Daniel Lanzerstorfer Kontonummer: 00000028357   Bankleitzahl: 34361 Auftraggeber:  Laffer Andreas Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           18,00',
+                'purpose' => 'Online-Auftrag vom 05.11.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123103.000.271.298
+ 05.11.2012                       00404 023 509
+ Empfänger:     Daniel Lanzerstorfer
+ Kontonummer: 00000028357   Bankleitzahl: 34361
+ Auftraggeber:  Laffer Andreas
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           18,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '18.00',
@@ -3002,7 +3264,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-11-16',
-                'purpose' => 'Online-Auftrag vom 16.11.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123212.768.013.788 16.11.2012                       00404 023 509 Empfänger:     Manfred Pierer Kontonummer: 00000031427   Bankleitzahl: 35065 Auftraggeber:  IVM-BR-Kassier Laffer Andreas Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 16.11.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123212.768.013.788
+ 16.11.2012                       00404 023 509
+ Empfänger:     Manfred Pierer
+ Kontonummer: 00000031427   Bankleitzahl: 35065
+ Auftraggeber:  IVM-BR-Kassier
+ Laffer Andreas
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3047,7 +3319,16 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '17',
                 'paydate' => '2012-11-26',
-                'purpose' => 'Online-Auftrag vom 26.11.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123314.552.792.858 26.11.2012                       00404 023 509 Empfänger:     Druck & Grafik Kontonummer: 00000610808   Bankleitzahl: 19520 Auftraggeber:  IVM TC Wien BRV DR. Philipp Zahlungsgrund: Re.15585/142                000000400832 Betrag: ---------- EUR          236,28',
+                'purpose' => 'Online-Auftrag vom 26.11.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123314.552.792.858
+ 26.11.2012                       00404 023 509
+ Empfänger:     Druck & Grafik
+ Kontonummer: 00000610808   Bankleitzahl: 19520
+ Auftraggeber:  IVM TC Wien BRV DR. Philipp
+ Zahlungsgrund: Re.15585/142                000000400832
+ Betrag:
+ ----------
+ EUR          236,28',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '236.28',
@@ -3058,13 +3339,23 @@ Auftr.geb.Ref:',
                 'updated_at' => '2013-04-30 11:20:50.340',
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
                 'depot_id' => '3',
                 'category_id' => '1',
                 'paydate' => '2012-11-26',
-                'purpose' => 'Online-Auftrag vom 26.11.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123314.552.792.828 26.11.2012                       00404 023 509 Empfänger:     Georg Kompacher Kontonummer: 03101659591   Bankleitzahl: 20815 Auftraggeber:  Laffer Andreas Zahlungsgrund: IVM BR Heirats-Prämie Betrag: ---------- EUR          100,00',
+                'purpose' => 'Online-Auftrag vom 26.11.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123314.552.792.828
+ 26.11.2012                       00404 023 509
+ Empfänger:     Georg Kompacher
+ Kontonummer: 03101659591   Bankleitzahl: 20815
+ Auftraggeber:  Laffer Andreas
+ Zahlungsgrund: IVM BR Heirats-Prämie
+ Betrag:
+ ----------
+ EUR          100,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '100.00',
@@ -3300,7 +3591,16 @@ Taxi Bhf- Wohnung',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-12-07',
-                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123424.384.002.258 07.12.2012                       00404 023 509 Empfänger:     Christine Kendlbacher Kontonummer: 00078424395   Bankleitzahl: 60000 Auftraggeber:  Angestelltenbetriebsrat IVM TC Wien Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           90,00',
+                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123424.384.002.258
+ 07.12.2012                       00404 023 509
+ Empfänger:     Christine Kendlbacher
+ Kontonummer: 00078424395   Bankleitzahl: 60000
+ Auftraggeber:  Angestelltenbetriebsrat IVM TC Wien
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           90,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '90.00',
@@ -3315,7 +3615,16 @@ Taxi Bhf- Wohnung',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-12-07',
-                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123424.384.002.228 07.12.2012                       00404 023 509 Empfänger:     Sylvia Zwettler Kontonummer: 00500550855   Bankleitzahl: 20404 Auftraggeber:  Angestelltenbetriebsrat IVM TC Wien Zahlungsgrund: IVM BR Sport-Unterstützung Betrag: ---------- EUR           21,00',
+                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123424.384.002.228
+ 07.12.2012                       00404 023 509
+ Empfänger:     Sylvia Zwettler
+ Kontonummer: 00500550855   Bankleitzahl: 20404
+ Auftraggeber:  Angestelltenbetriebsrat IVM TC Wien
+ Zahlungsgrund: IVM BR Sport-Unterstützung
+ Betrag:
+ ----------
+ EUR           21,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '21.00',
@@ -3330,7 +3639,16 @@ Taxi Bhf- Wohnung',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-12-07',
-                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123424.384.002.198 07.12.2012                       00404 023 509 Empfänger:     Julia Fornleitner Kontonummer: 00071402125   Bankleitzahl: 60000 Auftraggeber:  Angestelltenbetriebsrat IVM TC Wien Zahlungsgrund: IVM BR Sport-Unterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123424.384.002.198
+ 07.12.2012                       00404 023 509
+ Empfänger:     Julia Fornleitner
+ Kontonummer: 00071402125   Bankleitzahl: 60000
+ Auftraggeber:  Angestelltenbetriebsrat IVM TC Wien
+ Zahlungsgrund: IVM BR Sport-Unterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3345,7 +3663,16 @@ Taxi Bhf- Wohnung',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-12-07',
-                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123424.384.002.168 07.12.2012                       00404 023 509 Empfänger:     Michael Berger Kontonummer: 05206180000   Bankleitzahl: 49460 Auftraggeber:  Angestelltenbetriebsrat IVM TC Wien Zahlungsgrund: IVM BR Sport-Unterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123424.384.002.168
+ 07.12.2012                       00404 023 509
+ Empfänger:     Michael Berger
+ Kontonummer: 05206180000   Bankleitzahl: 49460
+ Auftraggeber:  Angestelltenbetriebsrat IVM TC Wien
+ Zahlungsgrund: IVM BR Sport-Unterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3360,7 +3687,16 @@ Taxi Bhf- Wohnung',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-12-07',
-                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123424.384.002.138 07.12.2012                       00404 023 509 Empfänger:     Christoph Lehner Kontonummer: 00000033449   Bankleitzahl: 32930 Auftraggeber:  Angestelltenbetriebsrat Ivm TC Wien Zahlungsgrund: IVM BR Sport-Unterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123424.384.002.138
+ 07.12.2012                       00404 023 509
+ Empfänger:     Christoph Lehner
+ Kontonummer: 00000033449   Bankleitzahl: 32930
+ Auftraggeber:  Angestelltenbetriebsrat Ivm TC Wien
+ Zahlungsgrund: IVM BR Sport-Unterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3375,7 +3711,16 @@ Taxi Bhf- Wohnung',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-12-07',
-                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123424.384.002.108 07.12.2012                       00404 023 509 Empfänger:     Martin Mitterer Kontonummer: 81210001867   Bankleitzahl: 14000 Auftraggeber:  Laffer Andreas Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 07.12.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123424.384.002.108
+ 07.12.2012                       00404 023 509
+ Empfänger:     Martin Mitterer
+ Kontonummer: 81210001867   Bankleitzahl: 14000
+ Auftraggeber:  Laffer Andreas
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3497,7 +3842,17 @@ Auftr.geb.Ref:
                 'depot_id' => '3',
                 'category_id' => '6',
                 'paydate' => '2012-12-21',
-                'purpose' => 'Online-Auftrag vom 21.12.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123564.405.015.788 21.12.2012                       00404 023 509 Empfänger:     Bernhard Rieder Kontonummer: 00001112648   Bankleitzahl: 32413 Auftraggeber:  Laffer Andreas Zahlungsgrund: IVM BR Weiterbildungsunterstützung Förderung für Studenten Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 21.12.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123564.405.015.788
+ 21.12.2012                       00404 023 509
+ Empfänger:     Bernhard Rieder
+ Kontonummer: 00001112648   Bankleitzahl: 32413
+ Auftraggeber:  Laffer Andreas
+ Zahlungsgrund: IVM BR Weiterbildungsunterstützung
+ Förderung für Studenten
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3512,7 +3867,17 @@ Auftr.geb.Ref:
                 'depot_id' => '3',
                 'category_id' => '2',
                 'paydate' => '2012-12-21',
-                'purpose' => 'Online-Auftrag vom 21.12.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123564.405.015.758 21.12.2012                       00404 023 509 Empfänger:     Andreas Weitenthaler Kontonummer: 00001752625   Bankleitzahl: 20815 Auftraggeber:  Laffer Andreas Zahlungsgrund: IVM BR Event-Unterstützung Weihnachtsfeier Betrag: ---------- EUR           15,00',
+                'purpose' => 'Online-Auftrag vom 21.12.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123564.405.015.758
+ 21.12.2012                       00404 023 509
+ Empfänger:     Andreas Weitenthaler
+ Kontonummer: 00001752625   Bankleitzahl: 20815
+ Auftraggeber:  Laffer Andreas
+ Zahlungsgrund: IVM BR Event-Unterstützung
+ Weihnachtsfeier
+ Betrag:
+ ----------
+ EUR           15,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '15.00',
@@ -3527,7 +3892,17 @@ Auftr.geb.Ref:
                 'depot_id' => '3',
                 'category_id' => '2',
                 'paydate' => '2012-12-21',
-                'purpose' => 'Online-Auftrag vom 21.12.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123564.405.015.728 21.12.2012                       00404 023 509 Empfänger:     Christian Ruff Kontonummer: 00077808682   Bankleitzahl: 60000 Auftraggeber:  Laffer Andreas Zahlungsgrund: IVM BR Event-Unterstützung Weihnachtsfeier Betrag: ---------- EUR           15,00',
+                'purpose' => 'Online-Auftrag vom 21.12.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123564.405.015.728
+ 21.12.2012                       00404 023 509
+ Empfänger:     Christian Ruff
+ Kontonummer: 00077808682   Bankleitzahl: 60000
+ Auftraggeber:  Laffer Andreas
+ Zahlungsgrund: IVM BR Event-Unterstützung
+ Weihnachtsfeier
+ Betrag:
+ ----------
+ EUR           15,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '15.00',
@@ -3542,7 +3917,17 @@ Auftr.geb.Ref:
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2012-12-21',
-                'purpose' => 'Online-Auftrag vom 21.12.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123564.372.165.188 21.12.2012                       00404 023 509 Empfänger:     Gerhard Kothgasser Kontonummer: 00000086801   Bankleitzahl: 38103 Auftraggeber:  Laffer Andreas Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Kurskosten USI-Graz Betrag: ---------- EUR           26,00',
+                'purpose' => 'Online-Auftrag vom 21.12.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123564.372.165.188
+ 21.12.2012                       00404 023 509
+ Empfänger:     Gerhard Kothgasser
+ Kontonummer: 00000086801   Bankleitzahl: 38103
+ Auftraggeber:  Laffer Andreas
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Kurskosten USI-Graz
+ Betrag:
+ ----------
+ EUR           26,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '26.00',
@@ -3557,7 +3942,20 @@ Auftr.geb.Ref:
                 'depot_id' => '3',
                 'category_id' => '2',
                 'paydate' => '2012-12-21',
-                'purpose' => 'Online-Auftrag vom 21.12.  AUFTRAGSBESTÄTIGUNG Belegnr.: 123564.372.165.158 21.12.2012                       00404 023 509 Empfänger:     Ingrid Primus Kontonummer: 00002007391   Bankleitzahl: 38102 Auftraggeber:  Laffer Andreas Zahlungsgrund: IVM BR Event-Unterstützung Vielen Dank ! Für die gute Zusammenarbeit Schöne Weihnachten der Betriebsrat der IVM TC Wien Betrag: ---------- EUR          210,00',
+                'purpose' => 'Online-Auftrag vom 21.12.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 123564.372.165.158
+ 21.12.2012                       00404 023 509
+ Empfänger:     Ingrid Primus
+ Kontonummer: 00002007391   Bankleitzahl: 38102
+ Auftraggeber:  Laffer Andreas
+ Zahlungsgrund: IVM BR Event-Unterstützung
+ Vielen Dank !
+ Für die gute Zusammenarbeit
+ Schöne Weihnachten
+ der Betriebsrat der IVM TC Wien
+ Betrag:
+ ----------
+ EUR          210,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '210.00',
@@ -3732,7 +4130,16 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '12',
                 'paydate' => '2013-01-21',
-                'purpose' => 'Abschöpfer A01 / 00000000641  AUFTRAGSBESTÄTIGUNG Belegnr.: 130213.597.165.968 21.01.2013                       00404 023 509 Empfänger:     BR F.ANG.IVM TC WIEN GMBH Kontonummer: 00204 046 577 Bankleitzahl: 20151 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te Zahlungsgrund:                             000204046577 Betrag: ---------- EUR          774,18',
+                'purpose' => 'Abschöpfer A01 / 00000000641  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130213.597.165.968
+ 21.01.2013                       00404 023 509
+ Empfänger:     BR F.ANG.IVM TC WIEN GMBH
+ Kontonummer: 00204 046 577 Bankleitzahl: 20151
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ Zahlungsgrund:                             000204046577
+ Betrag:
+ ----------
+ EUR          774,18',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '774.18',
@@ -3777,7 +4184,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.006.228 06.02.2013                       00404 023 509 Empfänger:     Michael Kapfenberger Kontonummer: 00100139035   Bankleitzahl: 44770 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.006.228
+ 06.02.2013                       00404 023 509
+ Empfänger:     Michael Kapfenberger
+ Kontonummer: 00100139035   Bankleitzahl: 44770
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3792,7 +4209,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.006.198 06.02.2013                       00404 023 509 Empfänger:     Christoph FÜRST Kontonummer: 00077995564   Bankleitzahl: 60000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           29,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.006.198
+ 06.02.2013                       00404 023 509
+ Empfänger:     Christoph FÜRST
+ Kontonummer: 00077995564   Bankleitzahl: 60000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           29,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '29.00',
@@ -3807,7 +4234,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '2',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.006.168 06.02.2013                       00404 023 509 Empfänger:     Matthias Maier Kontonummer: 00001881192   Bankleitzahl: 20815 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Event-Unterstützung Betrag: ---------- EUR           15,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.006.168
+ 06.02.2013                       00404 023 509
+ Empfänger:     Matthias Maier
+ Kontonummer: 00001881192   Bankleitzahl: 20815
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Event-Unterstützung
+ Betrag:
+ ----------
+ EUR           15,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '15.00',
@@ -3822,7 +4259,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.006.138 06.02.2013                       00404 023 509 Empfänger:     Andreas Laffer Kontonummer: 00717 401 731 Bankleitzahl: 20151 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.006.138
+ 06.02.2013                       00404 023 509
+ Empfänger:     Andreas Laffer
+ Kontonummer: 00717 401 731 Bankleitzahl: 20151
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3837,7 +4284,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.006.108 06.02.2013                       00404 023 509 Empfänger:     Robert Hauser Kontonummer: 00000046870   Bankleitzahl: 35065 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           80,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.006.108
+ 06.02.2013                       00404 023 509
+ Empfänger:     Robert Hauser
+ Kontonummer: 00000046870   Bankleitzahl: 35065
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           80,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '80.00',
@@ -3852,7 +4309,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '6',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.006.078 06.02.2013                       00404 023 509 Empfänger:     Bernhard Rieder Kontonummer: 00001112648   Bankleitzahl: 32413 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Weiterbildungsunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.006.078
+ 06.02.2013                       00404 023 509
+ Empfänger:     Bernhard Rieder
+ Kontonummer: 00001112648   Bankleitzahl: 32413
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Weiterbildungsunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3867,7 +4334,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.006.048 06.02.2013                       00404 023 509 Empfänger:     Daniel Lanzerstorfer Kontonummer: 00000028357   Bankleitzahl: 34361 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           22,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.006.048
+ 06.02.2013                       00404 023 509
+ Empfänger:     Daniel Lanzerstorfer
+ Kontonummer: 00000028357   Bankleitzahl: 34361
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           22,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '22.00',
@@ -3882,7 +4359,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '3',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.006.018 06.02.2013                       00404 023 509 Empfänger:     Peter Postmann Kontonummer: 28614188600   Bankleitzahl: 20111 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM- oder Kunden-Event/Aktion, Spor Betrag: ---------- EUR           65,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.006.018
+ 06.02.2013                       00404 023 509
+ Empfänger:     Peter Postmann
+ Kontonummer: 28614188600   Bankleitzahl: 20111
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM- oder Kunden-Event/Aktion, Spor
+ Betrag:
+ ----------
+ EUR           65,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '65.00',
@@ -3897,7 +4384,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.005.988 06.02.2013                       00404 023 509 Empfänger:     Reinhold Wechselberger Kontonummer: 00011349495   Bankleitzahl: 32000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.005.988
+ 06.02.2013                       00404 023 509
+ Empfänger:     Reinhold Wechselberger
+ Kontonummer: 00011349495   Bankleitzahl: 32000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3912,7 +4409,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '6',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.005.958 06.02.2013                       00404 023 509 Empfänger:     Gerhard Hackl Kontonummer: 00007740152   Bankleitzahl: 34777 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Weiterbildungsunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.005.958
+ 06.02.2013                       00404 023 509
+ Empfänger:     Gerhard Hackl
+ Kontonummer: 00007740152   Bankleitzahl: 34777
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Weiterbildungsunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3927,7 +4434,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '2',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.005.928 06.02.2013                       00404 023 509 Empfänger:     Martin Mitterer Kontonummer: 81210001867   Bankleitzahl: 14000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Event-Unterstützung Betrag: ---------- EUR           15,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.005.928
+ 06.02.2013                       00404 023 509
+ Empfänger:     Martin Mitterer
+ Kontonummer: 81210001867   Bankleitzahl: 14000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Event-Unterstützung
+ Betrag:
+ ----------
+ EUR           15,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '15.00',
@@ -3942,7 +4459,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '3',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.005.898 06.02.2013                       00404 023 509 Empfänger:     Erald Vucini Kontonummer: 28653439200   Bankleitzahl: 20111 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Sportunterstützung Betrag: ---------- EUR           19,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.005.898
+ 06.02.2013                       00404 023 509
+ Empfänger:     Erald Vucini
+ Kontonummer: 28653439200   Bankleitzahl: 20111
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Sportunterstützung
+ Betrag:
+ ----------
+ EUR           19,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '19.00',
@@ -3957,7 +4484,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '2',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.005.868 06.02.2013                       00404 023 509 Empfänger:     Edwin Tschörch Kontonummer: 30034029715   Bankleitzahl: 20111 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM- oder Kunden-Event/Aktion Betrag: ---------- EUR           15,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.005.868
+ 06.02.2013                       00404 023 509
+ Empfänger:     Edwin Tschörch
+ Kontonummer: 30034029715   Bankleitzahl: 20111
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM- oder Kunden-Event/Aktion
+ Betrag:
+ ----------
+ EUR           15,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '15.00',
@@ -3972,7 +4509,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.005.838 06.02.2013                       00404 023 509 Empfänger:     DeLang Sea Kontonummer: 00075668903   Bankleitzahl: 60000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.005.838
+ 06.02.2013                       00404 023 509
+ Empfänger:     DeLang Sea
+ Kontonummer: 00075668903   Bankleitzahl: 60000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -3987,7 +4534,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '2',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.005.808 06.02.2013                       00404 023 509 Empfänger:     Michael Pagitsch Kontonummer: 00074685901   Bankleitzahl: 60000 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM- oder Kunden-Event/Aktion Betrag: ---------- EUR           15,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.005.808
+ 06.02.2013                       00404 023 509
+ Empfänger:     Michael Pagitsch
+ Kontonummer: 00074685901   Bankleitzahl: 60000
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM- oder Kunden-Event/Aktion
+ Betrag:
+ ----------
+ EUR           15,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '15.00',
@@ -4002,7 +4559,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '3',
                 'paydate' => '2013-02-06',
-                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130374.399.005.778 06.02.2013                       00404 023 509 Empfänger:     Gerhard Kothgasser Kontonummer: 00000086801   Bankleitzahl: 38103 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te hn. Consultants GmbH Zahlungsgrund: IVM BR Sport und Event-Unterstützun Betrag: ---------- EUR           29,00',
+                'purpose' => 'Online-Auftrag vom 06.02.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130374.399.005.778
+ 06.02.2013                       00404 023 509
+ Empfänger:     Gerhard Kothgasser
+ Kontonummer: 00000086801   Bankleitzahl: 38103
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ hn. Consultants GmbH
+ Zahlungsgrund: IVM BR Sport und Event-Unterstützun
+ Betrag:
+ ----------
+ EUR           29,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '29.00',
@@ -4041,7 +4608,16 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '12',
                 'paydate' => '2013-02-20',
-                'purpose' => 'Abschöpfer A01 / 00000000641  AUFTRAGSBESTÄTIGUNG Belegnr.: 130514.255.121.898 20.02.2013                       00404 023 509 Empfänger:     BR F.ANG.IVM TC WIEN GMBH Kontonummer: 00204 046 577 Bankleitzahl: 20151 Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te Zahlungsgrund:                             000204046577 Betrag: ---------- EUR          506,50',
+                'purpose' => 'Abschöpfer A01 / 00000000641  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130514.255.121.898
+ 20.02.2013                       00404 023 509
+ Empfänger:     BR F.ANG.IVM TC WIEN GMBH
+ Kontonummer: 00204 046 577 Bankleitzahl: 20151
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa Ivm Te
+ Zahlungsgrund:                             000204046577
+ Betrag:
+ ----------
+ EUR          506,50',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '506.50',
@@ -4095,7 +4671,16 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '12',
                 'paydate' => '2013-03-20',
-                'purpose' => 'Abschöpfer A01 / 00000000641  AUFTRAGSBESTÄTIGUNG Belegnr.: 130794.330.168.158 20.03.2013                       00404 023 509 Empfänger:     SPARBUCH Kontonummer: 00204 046 577 Bankleitzahl: 20151 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund:                             000204046577 Betrag: ---------- EUR        1.035,81',
+                'purpose' => 'Abschöpfer A01 / 00000000641  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130794.330.168.158
+ 20.03.2013                       00404 023 509
+ Empfänger:     SPARBUCH
+ Kontonummer: 00204 046 577 Bankleitzahl: 20151
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund:                             000204046577
+ Betrag:
+ ----------
+ EUR        1.035,81',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '1035.81',
@@ -4230,7 +4815,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '2',
                 'paydate' => '2013-04-03',
-                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130934.218.001.828 03.04.2013                       00404 023 509 Empfänger:     Helmuth Schulter Kontonummer: 21325 001 800 Bankleitzahl: 12000 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Event-Autobahnvignette Betrag: ---------- EUR           15,00',
+                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130934.218.001.828
+ 03.04.2013                       00404 023 509
+ Empfänger:     Helmuth Schulter
+ Kontonummer: 21325 001 800 Bankleitzahl: 12000
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Event-Autobahnvignette
+ Betrag:
+ ----------
+ EUR           15,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '15.00',
@@ -4245,7 +4840,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '1',
                 'paydate' => '2013-04-03',
-                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130934.218.001.798 03.04.2013                       00404 023 509 Empfänger:     Wolfgang Koch Kontonummer: 00008145245   Bankleitzahl: 35000 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Heirats/Familen-Unterstützun Betrag: ---------- EUR          100,00',
+                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130934.218.001.798
+ 03.04.2013                       00404 023 509
+ Empfänger:     Wolfgang Koch
+ Kontonummer: 00008145245   Bankleitzahl: 35000
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Heirats/Familen-Unterstützun
+ Betrag:
+ ----------
+ EUR          100,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '100.00',
@@ -4260,7 +4865,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-04-03',
-                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130934.218.001.768 03.04.2013                       00404 023 509 Empfänger:     Martin Mitterer Kontonummer: 81210001867   Bankleitzahl: 14000 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130934.218.001.768
+ 03.04.2013                       00404 023 509
+ Empfänger:     Martin Mitterer
+ Kontonummer: 81210001867   Bankleitzahl: 14000
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -4275,7 +4890,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '3',
                 'paydate' => '2013-04-03',
-                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130934.218.001.738 03.04.2013                       00404 023 509 Empfänger:     Michael Toth Kontonummer: 20011312170   Bankleitzahl: 14200 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           50,00',
+                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130934.218.001.738
+ 03.04.2013                       00404 023 509
+ Empfänger:     Michael Toth
+ Kontonummer: 20011312170   Bankleitzahl: 14200
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           50,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '50.00',
@@ -4290,7 +4915,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-04-03',
-                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130934.218.001.708 03.04.2013                       00404 023 509 Empfänger:     Wilhelm Schmelz Kontonummer: 82023046200   Bankleitzahl: 20111 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130934.218.001.708
+ 03.04.2013                       00404 023 509
+ Empfänger:     Wilhelm Schmelz
+ Kontonummer: 82023046200   Bankleitzahl: 20111
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -4305,7 +4940,18 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '2',
                 'paydate' => '2013-04-03',
-                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130934.218.001.678 03.04.2013                       00404 023 509 Empfänger:     Markus Fladischer Kontonummer: 00079458360   Bankleitzahl: 60000 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Event-Unterstützung zum Aufteilen an alle Betrag: ---------- EUR          120,00',
+                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130934.218.001.678
+ 03.04.2013                       00404 023 509
+ Empfänger:     Markus Fladischer
+ Kontonummer: 00079458360   Bankleitzahl: 60000
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Event-Unterstützung
+ zum Aufteilen an alle
+ Betrag:
+ ----------
+ EUR          120,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '120.00',
@@ -4320,7 +4966,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-04-03',
-                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130934.185.019.468 03.04.2013                       00404 023 509 Empfänger:     Julia Fornleitner Kontonummer: 00071402125   Bankleitzahl: 60000 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130934.185.019.468
+ 03.04.2013                       00404 023 509
+ Empfänger:     Julia Fornleitner
+ Kontonummer: 00071402125   Bankleitzahl: 60000
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -4335,7 +4991,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-04-03',
-                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130934.185.019.438 03.04.2013                       00404 023 509 Empfänger:     Wolfgang Knefel Kontonummer: 20011269860   Bankleitzahl: 14200 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130934.185.019.438
+ 03.04.2013                       00404 023 509
+ Empfänger:     Wolfgang Knefel
+ Kontonummer: 20011269860   Bankleitzahl: 14200
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -4350,7 +5016,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-04-03',
-                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130934.185.019.408 03.04.2013                       00404 023 509 Empfänger:     Yvonne Paul Kontonummer: 02301454084   Bankleitzahl: 20815 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           50,00',
+                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130934.185.019.408
+ 03.04.2013                       00404 023 509
+ Empfänger:     Yvonne Paul
+ Kontonummer: 02301454084   Bankleitzahl: 20815
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           50,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '50.00',
@@ -4365,7 +5041,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '3',
                 'paydate' => '2013-04-03',
-                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130934.185.019.378 03.04.2013                       00404 023 509 Empfänger:     Gerhard Zvonek Kontonummer: 17710010501   Bankleitzahl: 14000 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           26,00',
+                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130934.185.019.378
+ 03.04.2013                       00404 023 509
+ Empfänger:     Gerhard Zvonek
+ Kontonummer: 17710010501   Bankleitzahl: 14000
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           26,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '26.00',
@@ -4380,7 +5066,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '2',
                 'paydate' => '2013-04-03',
-                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 130934.185.019.348 03.04.2013                       00404 023 509 Empfänger:     Robert Salamon Kontonummer: 50216880000   Bankleitzahl: 44810 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Event-Autobahnvignette Betrag: ---------- EUR           15,00',
+                'purpose' => 'Online-Auftrag vom 03.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 130934.185.019.348
+ 03.04.2013                       00404 023 509
+ Empfänger:     Robert Salamon
+ Kontonummer: 50216880000   Bankleitzahl: 44810
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Event-Autobahnvignette
+ Betrag:
+ ----------
+ EUR           15,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '15.00',
@@ -4395,7 +5091,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-04-11',
-                'purpose' => 'Online-Auftrag vom 11.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 131012.993.003.038 11.04.2013                       00404 023 509 Empfänger:     Manfred Pierer Kontonummer: 00000031427   Bankleitzahl: 35065 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           40,00',
+                'purpose' => 'Online-Auftrag vom 11.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 131012.993.003.038
+ 11.04.2013                       00404 023 509
+ Empfänger:     Manfred Pierer
+ Kontonummer: 00000031427   Bankleitzahl: 35065
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           40,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '40.00',
@@ -4410,7 +5116,17 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '5',
                 'paydate' => '2013-04-11',
-                'purpose' => 'Online-Auftrag vom 11.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 131012.993.003.008 11.04.2013                       00404 023 509 Empfänger:     Sylvia Zwettler Kontonummer: 00500550855   Bankleitzahl: 20404 Auftraggeber:  Laffer Andreas IVM BR Zahlungsgrund: IVM BR Kultur-/Sportunterstützung Betrag: ---------- EUR           35,00',
+                'purpose' => 'Online-Auftrag vom 11.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 131012.993.003.008
+ 11.04.2013                       00404 023 509
+ Empfänger:     Sylvia Zwettler
+ Kontonummer: 00500550855   Bankleitzahl: 20404
+ Auftraggeber:  Laffer Andreas
+ IVM BR
+ Zahlungsgrund: IVM BR Kultur-/Sportunterstützung
+ Betrag:
+ ----------
+ EUR           35,00',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '35.00',
@@ -4425,7 +5141,16 @@ Auftr.geb.Ref:',
                 'depot_id' => '3',
                 'category_id' => '17',
                 'paydate' => '2013-04-11',
-                'purpose' => 'Online-Auftrag vom 11.04.  AUFTRAGSBESTÄTIGUNG Belegnr.: 131012.993.002.978 11.04.2013                       00404 023 509 Empfänger:     Druck & Grafik Kontonummer: 00000610808   Bankleitzahl: 19520 Auftraggeber:  IVM TC Wien BRV DR. Philipp Zahlungsgrund: Re.15784/142                000000400832 Betrag: ---------- EUR          234,63',
+                'purpose' => 'Online-Auftrag vom 11.04.  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 131012.993.002.978
+ 11.04.2013                       00404 023 509
+ Empfänger:     Druck & Grafik
+ Kontonummer: 00000610808   Bankleitzahl: 19520
+ Auftraggeber:  IVM TC Wien BRV DR. Philipp
+ Zahlungsgrund: Re.15784/142                000000400832
+ Betrag:
+ ----------
+ EUR          234,63',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '234.63',
@@ -4544,7 +5269,16 @@ Hotel',
                 'depot_id' => '3',
                 'category_id' => '12',
                 'paydate' => '2013-04-22',
-                'purpose' => 'Abschöpfer A01 / 00000000641  AUFTRAGSBESTÄTIGUNG Belegnr.: 131122.036.121.588 22.04.2013                       00404 023 509 Empfänger:     SPARBUCH Kontonummer: 00204 046 577 Bankleitzahl: 20151 Auftraggeber:  Angestelltenbetriebsrat d.Fa Zahlungsgrund:                             000204046577 Betrag: ---------- EUR          190,62',
+                'purpose' => 'Abschöpfer A01 / 00000000641  AUFTRAGSBESTÄTIGUNG
+ Belegnr.: 131122.036.121.588
+ 22.04.2013                       00404 023 509
+ Empfänger:     SPARBUCH
+ Kontonummer: 00204 046 577 Bankleitzahl: 20151
+ Auftraggeber:  Angestelltenbetriebsrat d.Fa
+ Zahlungsgrund:                             000204046577
+ Betrag:
+ ----------
+ EUR          190,62',
                 'support_year' => NULL,
                 'payin' => NULL,
                 'payout' => '190.62',
@@ -4631,6 +5365,7 @@ Taxi Lokal - Quartier',
                 'updated_at' => NULL,
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
@@ -6365,6 +7100,7 @@ EUR 40,00',
                 'updated_at' => NULL,
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
@@ -8162,6 +8898,7 @@ Keramikpfanne
                 'updated_at' => '2022-11-17 20:11:56.460',
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
@@ -10061,6 +10798,7 @@ Hinreise + Reservierung',
                 'updated_at' => '2015-10-27 13:10:03.450',
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
@@ -12311,6 +13049,7 @@ Auftr.geb.Ref:',
                 'updated_at' => NULL,
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
@@ -14476,6 +15215,7 @@ Auftr.geb.Ref:',
                 'updated_at' => '2022-11-17 20:27:08.363',
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
@@ -16547,6 +17287,7 @@ Auftr.geb.Ref:',
                 'updated_at' => '2018-08-14 15:25:00.280',
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
@@ -18205,6 +18946,7 @@ Fehlbuchung retour Gutschrift a/Ing. Andreas Laffer
                 'updated_at' => '2019-12-04 14:32:55.903',
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
@@ -19759,6 +20501,7 @@ SEPA-AUFTRAGSBESTÄTIGUNG Belegnr.: 190982.267.027.088 08.04.2019 EUR 00404 023 
                 'updated_at' => NULL,
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
@@ -21339,6 +22082,7 @@ GUTSCHRIFT Belegnr.: 100453.111.009.728 14.02.2020 EUR 00404 023 509 Zahlungsemp
                 'updated_at' => NULL,
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (
@@ -22929,6 +23673,7 @@ GUTSCHRIFT Belegnr.: 111663.154.049.158 15.06.2021 EUR 00404 023 509 Zahlungsemp
                 'updated_at' => '2022-11-17 20:11:56.460',
             ),
         ));
+        
         \DB::table('bookings')->insert(array (
             0 => 
             array (

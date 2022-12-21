@@ -10,7 +10,7 @@ class BankData extends Model
     use HasFactory;
 
     protected $table = 'bank_data';
-    protected $dateFormat = 'd-m-Y H:i:s';
+    protected $dateFormat = 'Y-m-d H:i:s.v';
 
     //Buchungsdatum;Valutadatum;Buchungstext ;Interne Notiz;Währung;Betrag;Belegdaten;Belegnummer;Auftraggebername;Auftraggeberkonto;Auftraggeber
 

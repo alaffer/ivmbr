@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     protected $fillable = ['name'];
-    //protected $dateFormat = 'd-m-Y H:i:s';
+    protected $dateFormat = 'Y-m-d H:i:s.v';
     
     public function users()
     {
