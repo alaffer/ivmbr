@@ -8,10 +8,11 @@ use App\Models\Category;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\FieldSet;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\FieldSet;
 use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use pxlrbt\FilamentExcel\Columns\Column;
@@ -64,14 +65,14 @@ class CategoryResource extends Resource
                 TextColumn::make('name')->limit('50')->sortable()->searchable(),
                 TextColumn::make('maxsupport')->limit('50')->label('Max. Förderung'),
                 TextColumn::make('maxsupportperyear')->limit('50')->label('Max. Förderung/Jahr'),
-                BooleanColumn::make('is_employee_support')->label('MA-Förderung'),
-                BooleanColumn::make('active')->label('Aktiv'),
+                IconColumn::make('is_employee_support')->boolean()->label('MA-Förderung'),
+                IconColumn::make('active')->boolean()->label('Aktiv'),
                 TextColumn::make('created_at')->since()->label('Erstellt'),
             ])
             ->filters([
-                Filter::make('Activ')
+                Filter::make('Aktiv')
                     ->query(fn (Builder $query): Builder => $query->where('active',true)),
-                Filter::make('Inactiv')
+                Filter::make('Inaktiv')
                     ->query(fn (Builder $query): Builder => $query->where('active',false)),
             ])
             ->actions([
@@ -108,7 +109,11 @@ class CategoryResource extends Resource
             //
         ];
     }
-    
+    protected function shouldPersistTableFiltersInSession(): bool
+    {
+        return true;
+    }
+
     public static function getPages(): array
     {
         return [

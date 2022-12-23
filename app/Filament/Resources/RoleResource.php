@@ -51,7 +51,11 @@ class RoleResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+    protected function shouldPersistTableFiltersInSession(): bool
+    {
+        return true;
+    }
+
     public static function getRelations(): array
     {
         return [

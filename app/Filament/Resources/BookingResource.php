@@ -9,6 +9,7 @@ use App\Models\Booking;
 use Illuminate\Support\Str;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
+use Illuminate\Support\Carbon;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
 use Filament\Tables\Filters\Filter;
@@ -130,6 +131,19 @@ class BookingResource extends Resource
                     Forms\Components\DatePicker::make('paydate_from')->label('Datum von'),
                     Forms\Components\DatePicker::make('paydate_until')->label('Datum bis'),
                 ])
+                ->indicateUsing(function (array $data): array {
+                    $indicators = [];
+             
+                    if ($data['paydate_from'] ?? null) {
+                        $indicators['paydate_from'] = 'Datum von ' . Carbon::parse($data['paydate_from'])->toFormattedDateString();
+                    }
+             
+                    if ($data['paydate_until'] ?? null) {
+                        $indicators['paydate_until'] = 'Datum bis ' . Carbon::parse($data['paydate_until'])->toFormattedDateString();
+                    }
+             
+                    return $indicators;
+                })
                 ->query(function (Builder $query, array $data): Builder {
                     return $query
                         ->when(
@@ -143,14 +157,14 @@ class BookingResource extends Resource
                 }),
                 SelectFilter::make('depot')->label('Depot')
                     ->relationship('depot','name'),
-                MultiSelectFilter::make('category')->label('Kategorie')
-                    ->relationship('category','name'),
+                SelectFilter::make('category')->label('Kategorie')
+                    ->relationship('category','name')->multiple(),
                 Filter::make('PersonSupport')->label('Nur Personen-Förderungen')
-                    ->query(fn (Builder $query): Builder => $query->where('Person','<>',null)->where('Person','<>','')),
+                    ->query(fn (Builder $query): Builder => $query->where('Person','<>',null)->where('Person','<>',''))->toggle(),
                 Filter::make('Aktive')
-                    ->query(fn (Builder $query): Builder => $query->where('deleted_at','=',null)),
+                    ->query(fn (Builder $query): Builder => $query->where('deleted_at','=',null))->toggle(),
                 Filter::make('Gelöschte')
-                    ->query(fn (Builder $query): Builder => $query->where('deleted_at','!=',null)),
+                    ->query(fn (Builder $query): Builder => $query->where('deleted_at','!=',null))->toggle(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
@@ -210,7 +224,7 @@ class BookingResource extends Resource
             // ->deselectRecordsAfterCompletion(),
         ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
@@ -234,5 +248,9 @@ class BookingResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+    protected function shouldPersistTableFiltersInSession(): bool
+    {
+        return true;
     }
 }

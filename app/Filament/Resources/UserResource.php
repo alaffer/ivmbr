@@ -71,7 +71,11 @@ class UserResource extends Resource
             //
         ];
     }
-    
+    protected function shouldPersistTableFiltersInSession(): bool
+    {
+        return true;
+    }
+
     public static function getPages(): array
     {
         return [

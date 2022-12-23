@@ -9,10 +9,11 @@ use Filament\Resources\Form;
 use Maatwebsite\Excel\Excel;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\FieldSet;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\FieldSet;
 use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use pxlrbt\FilamentExcel\Columns\Column;
@@ -77,13 +78,13 @@ class DepotResource extends Resource
                 TextColumn::make('accountType')->label('Kontoart'),
                 TextColumn::make('excelName')->label('Excel-Name'),
                 TextColumn::make('excelSort')->label('Excel-Sortierung'),
-                BooleanColumn::make('active')->label('Aktiv'),
+                IconColumn::make('active')->boolean()->label('Aktiv'),
                 TextColumn::make('created_at')->since()->label('Erstellt'),
             ])
             ->filters([
-                Filter::make('Activ')
+                Filter::make('Aktiv')
                     ->query(fn (Builder $query): Builder => $query->where('active',true)),
-                Filter::make('Inactiv')
+                Filter::make('Inaktiv')
                     ->query(fn (Builder $query): Builder => $query->where('active',false)),
             ])
             ->actions([
@@ -121,7 +122,11 @@ class DepotResource extends Resource
             //
         ];
     }
-    
+    protected function shouldPersistTableFiltersInSession(): bool
+    {
+        return true;
+    }
+
     public static function getPages(): array
     {
         return [

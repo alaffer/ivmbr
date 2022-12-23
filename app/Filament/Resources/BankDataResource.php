@@ -15,6 +15,7 @@ use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
@@ -121,7 +122,7 @@ class BankDataResource extends Resource
                 // Only render the tooltip if the column contents exceeds the length limit.
                 return $state;
                 }),
-                BooleanColumn::make('imported_in_bookings')->label('Importiert'),
+                IconColumn::make('imported_in_bookings')->boolean()->label('Importiert'),
                 // TextColumn::make('auftraggeber_blz')->limit(6),
             ])->defaultSort('buchungsdatum','desc')
             ->filters([
@@ -142,9 +143,9 @@ class BankDataResource extends Resource
                         );
                 }),
                 Filter::make('Aktive')
-                    ->query(fn (Builder $query): Builder => $query->where('deleted_at','=',null)),
+                    ->query(fn (Builder $query): Builder => $query->where('deleted_at','=',null))->toggle(),
                 Filter::make('Gelöschte')
-                    ->query(fn (Builder $query): Builder => $query->where('deleted_at','!=',null)),
+                    ->query(fn (Builder $query): Builder => $query->where('deleted_at','!=',null))->toggle(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -188,7 +189,11 @@ class BankDataResource extends Resource
                     ->color('success'),
             ]);
     }
-    
+    protected function shouldPersistTableFiltersInSession(): bool
+    {
+        return true;
+    }
+
     public static function getPages(): array
     {
         return [
