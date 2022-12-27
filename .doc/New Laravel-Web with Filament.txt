@@ -135,6 +135,6 @@ Falls datetime verwendet wird muss man im Model das Format vorgeben
 
 	DB::unprepared("ALTER TABLE dbo.depots ADD formName AS '[' + cast(id as varchar) + '] ' +  excelName  + case when active=1 then ' (aktiv)' else ' (inaktiv)' END;");
 	
-8) Danach kann man wie gewohnt php artisam migrate... oder php artisam migrate:fresh --seed laufen lassen
+8) Danach kann man wie gewohnt php artisam migrate... oder php artisan migrate:fresh --seed laufen lassen
 	
 
